@@ -1,4 +1,5 @@
 import { validateStatus } from "../services/validateStatusTypes";
+
 export class MediaItem {
   constructor({ id, title, status }) {
     this._id = id;
