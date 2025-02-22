@@ -1,4 +1,4 @@
-import { MediaItem } from "./mediaItem";
+import { MediaItem } from "./MediaItem"; 
 
 export class Game extends MediaItem {
   constructor({ id, title, status, platform }) {

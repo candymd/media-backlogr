@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { Game } from "../../../../media/entities/Game";
-import { MEDIA_STATUS_TYPES } from "../../../../config/media";
+import { Game } from "../../../media/entities/Game";
+import { MEDIA_STATUS_TYPES } from "../../../config/media";
 
 describe("Game", () => {
-  it.only("returns a valid game object", () => {
+  it("returns a valid game object", () => {
     const cyberpunk = new Game({
       id: "123456",
       title: "Cyberpunk 2027",
