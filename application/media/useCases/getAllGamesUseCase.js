@@ -4,6 +4,7 @@ export class GetAllGamesUseCase {
   }
 
   async execute() {
-    return await this._repository.getAll();
+    const allGames = await this._repository.getAll();
+    return allGames.map((game) => game.toJSON());
   }
 }

@@ -1,14 +1,70 @@
 import { Game } from "../../domain/media/entities/Game";
 import { MediaItemRepository } from "../../domain/media/repositories/mediaItemRepository";
+import { MEDIA_STATUS_TYPES } from "../../domain/config/media";
 
 export class InMemoryGameRepository extends MediaItemRepository {
   async getAll() {
     return [
-      new Game("1", "The Last of Us Part II", "completed", "PC"),
-      new Game("2", "Ghost of Tsushima", "in_backlog", "PC"),
-      new Game("3", "Ghost of Tsushima", "in_backlog", "PC"),
-      new Game("4", "Ghost of Tsushima", "in_backlog", "PC"),
-      new Game("5", "Ghost of Tsushima", "in_backlog", "PC"),
+      new Game({
+        id: "1",
+        title: "The Last of Us Part II",
+        status: MEDIA_STATUS_TYPES.IN_PROGRESS,
+        platform: "PC",
+      }),
+      new Game({
+        id: "2",
+        title: "Cyberpunk 2077",
+        status: MEDIA_STATUS_TYPES.IN_BACKLOG,
+        platform: "PC",
+      }),
+      new Game({
+        id: "3",
+        title: "Red Dead Redemption 2",
+        status: MEDIA_STATUS_TYPES.COMPLETED,
+        platform: "PLAYSTATION",
+      }),
+      new Game({
+        id: "4",
+        title: "Halo Infinite",
+        status: MEDIA_STATUS_TYPES.IN_BACKLOG,
+        platform: "PLAYSTATION",
+      }),
+      new Game({
+        id: "5",
+        title: "The Witcher 3",
+        status: MEDIA_STATUS_TYPES.COMPLETED,
+        platform: "PC",
+      }),
+      new Game({
+        id: "6",
+        title: "Ghost of Tsushima",
+        status: MEDIA_STATUS_TYPES.COMPLETED,
+        platform: "PC",
+      }),
+      new Game({
+        id: "7",
+        title: "Doom Eternal",
+        status: MEDIA_STATUS_TYPES.IN_BACKLOG,
+        platform: "PC",
+      }),
+      new Game({
+        id: "8",
+        title: "Assassin's Creed Valhalla",
+        status: MEDIA_STATUS_TYPES.COMPLETED,
+        platform: "PC",
+      }),
+      new Game({
+        id: "9",
+        title: "Gears 5",
+        status: MEDIA_STATUS_TYPES.IN_BACKLOG,
+        platform: "PLAYSTATION",
+      }),
+      new Game({
+        id: "10",
+        title: "Resident Evil Village",
+        status: MEDIA_STATUS_TYPES.COMPLETED,
+        platform: "PC",
+      }),
     ];
   }
 }
