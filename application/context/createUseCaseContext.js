@@ -1,4 +1,4 @@
-import { InMemoryGameRepository } from "../../infrastructure/media/InMemoryGameRepository";
+import { InMemoryGameRepository } from "../../infrastructure/media/repositories/InMemoryGameRepository";
 import { GetAllGamesUseCase } from "../media/useCases/getAllGamesUseCase";
 
 export const createUseCaseContext = () => {
