@@ -67,4 +67,11 @@ export class InMemoryGameRepository extends MediaItemRepository {
       }),
     ];
   }
+
+  async add(gameData) {
+    const newGame = new Game(gameData);
+    this.games.push(newGame);
+    return newGame;
+  }
+
 }
