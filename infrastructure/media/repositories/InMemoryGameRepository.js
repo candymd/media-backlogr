@@ -3,8 +3,9 @@ import { MediaItemRepository } from "../../../domain/media/repositories/mediaIte
 import { MEDIA_STATUS_TYPES } from "../../../domain/config/media";
 
 export class InMemoryGameRepository extends MediaItemRepository {
-  async getAll() {
-    return [
+  constructor() {
+    super();
+    this.games = [
       new Game({
         id: "1",
         title: "The Last of Us Part II",
@@ -66,5 +67,16 @@ export class InMemoryGameRepository extends MediaItemRepository {
         platform: "PC",
       }),
     ];
+  }
+
+  async getAll() {
+    return this.games;
+  }
+
+  async add(gameData) {
+    const newGame = new Game(gameData);
+    newGame.id = (this.games.length + 1).toString();
+    this.games.push(newGame);
+    return newGame;
   }
 }
