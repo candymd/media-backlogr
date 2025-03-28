@@ -5,9 +5,15 @@ export class AddGameUseCase {
 
   async execute(gameData) {
     if (!gameData.title || !gameData.status || !gameData.platform) {
-      throw new Error("Missing required fields: title, status, platform");
+      throw new Error("Missing required fields");
     }
 
-    return this._repository.add(gameData);
+    const newGame = await this._repository.add(gameData);
+
+    if (!newGame) {
+      throw new Error("Failed to add game");
+    }
+
+    return newGame;
   }
 }
