@@ -4,4 +4,10 @@ export const MEDIA_STATUS_TYPES = {
   IN_PROGRESS: "in_progress",
 };
 
+export const PLATFORM_TYPES = {
+  PC: "PC",
+  PLAYSTATION: "PlayStation",
+  XBOX: "XBOX",
+};
+
 export const API_URL = "http://localhost:8080";

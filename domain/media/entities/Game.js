@@ -1,8 +1,10 @@
-import { MediaItem } from "./MediaItem"; 
+import { MediaItem } from "./MediaItem";
+import { validatePlatform } from "../services/validatePlatformTypes";
 
 export class Game extends MediaItem {
   constructor({ id, title, status, platform }) {
     super({ id, title, status });
+    validatePlatform(platform);
     this._platform = platform;
   }
 
@@ -11,6 +13,7 @@ export class Game extends MediaItem {
   }
 
   set platform(value) {
+    validatePlatform(value);
     this._platform = value;
   }
 
