@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:db": "json-server --watch ./data/db.json --port 8080",
+    "db": "json-server --watch ./data/db.json --port 8080",
+    "dev:db": "npm run dev & npm run db",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
