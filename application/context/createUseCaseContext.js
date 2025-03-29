@@ -1,9 +1,12 @@
-import { InMemoryGameRepository } from "../../infrastructure/media/repositories/InMemoryGameRepository";
 import { GetAllGamesUseCase } from "../media/useCases/getAllGamesUseCase";
 import { AddGameUseCase } from "../media/useCases/addGameUseCase";
+import { HttpGamesRepository } from "../../infrastructure/games/httpGamesRepository";
+import axios from "axios";
 
 export const createUseCaseContext = () => {
-  const gameRepository = new InMemoryGameRepository();
+  const gameRepository = new HttpGamesRepository({
+    httpFetcher: axios,
+  });
 
   const getAllGamesUseCase = new GetAllGamesUseCase({
     repository: gameRepository,

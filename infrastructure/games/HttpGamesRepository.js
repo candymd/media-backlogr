@@ -1,12 +1,19 @@
-import axios from "axios";
+/* eslint-disable no-unused-vars */
 import { MediaItemRepository } from "../../domain/media/repositories/mediaItemRepository";
 import { API_URL } from "../../domain/config";
 import { Game } from "../../domain/media/entities/Game";
 
 export class HttpGamesRepository extends MediaItemRepository {
+  #httpFetcher;
+
+  constructor({ httpFetcher } = {}) {
+    super();
+    this.#httpFetcher = httpFetcher || fetch;
+  }
+
   async getAll() {
     try {
-      const { data } = await axios.get(`${API_URL}/games`);
+      const { data } = await this.#httpFetcher.get(`${API_URL}/games`);
 
       return data.map((game) => this.fromJsonGameResponseToDomainGame(game));
     } catch (error) {
@@ -16,7 +23,7 @@ export class HttpGamesRepository extends MediaItemRepository {
 
   async add({ title, status, platform }) {
     try {
-      await axios.post(`${API_URL}/games`, {
+      await this.#httpFetcher.post(`${API_URL}/games`, {
         title,
         status,
         platform,
