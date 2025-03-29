@@ -4,5 +4,4 @@ export const MEDIA_STATUS_TYPES = {
   IN_PROGRESS: "in_progress",
 };
 
-export const API_URL = "http://localhost:8080/";
-
+export const API_URL = "http://localhost:8080";
