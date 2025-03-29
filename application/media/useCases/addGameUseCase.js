@@ -14,10 +14,6 @@ export class AddGameUseCase {
       platform,
     });
 
-    if (!newGame) {
-      throw new Error("Failed to add game");
-    }
-
     return newGame;
   }
 }

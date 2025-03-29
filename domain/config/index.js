@@ -6,7 +6,7 @@ export const MEDIA_STATUS_TYPES = {
 
 export const PLATFORM_TYPES = {
   PC: "PC",
-  PLAYSTATION: "PlayStation",
+  PLAYSTATION_5: "PLAYSTATION_5",
   XBOX: "XBOX",
 };
 

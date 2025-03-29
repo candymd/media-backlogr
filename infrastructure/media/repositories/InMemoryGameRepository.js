@@ -22,13 +22,13 @@ export class InMemoryGameRepository extends MediaItemRepository {
         id: "3",
         title: "Red Dead Redemption 2",
         status: MEDIA_STATUS_TYPES.COMPLETED,
-        platform: "PLAYSTATION",
+        platform: "PLAYSTATION_5",
       }),
       new Game({
         id: "4",
         title: "Halo Infinite",
         status: MEDIA_STATUS_TYPES.IN_BACKLOG,
-        platform: "PLAYSTATION",
+        platform: "PLAYSTATION_5",
       }),
       new Game({
         id: "5",
@@ -58,7 +58,7 @@ export class InMemoryGameRepository extends MediaItemRepository {
         id: "9",
         title: "Gears 5",
         status: MEDIA_STATUS_TYPES.IN_BACKLOG,
-        platform: "PLAYSTATION",
+        platform: "PLAYSTATION_5",
       }),
       new Game({
         id: "10",

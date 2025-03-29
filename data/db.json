@@ -10,7 +10,7 @@
       "id": "e9d3",
       "title": "The Witcher 3",
       "status": "in_progress",
-      "platform": "PlayStation"
+      "platform": "PLAYSTATION_5"
     },
     {
       "id": "a4f7",
@@ -28,19 +28,19 @@
       "id": "f2c8",
       "title": "Assassin's Creed Valhalla",
       "status": "in_progress",
-      "platform": "PlayStation"
+      "platform": "PLAYSTATION_5"
     },
     {
       "id": "7a1f",
       "title": "Ghost of Tsushima",
       "status": "completed",
-      "platform": "PlayStation"
+      "platform": "PLAYSTATION_5"
     },
     {
       "id": "9b5c",
       "title": "Spider-Man: Miles Morales",
       "status": "in_progress",
-      "platform": "PlayStation"
+      "platform": "PLAYSTATION_5"
     },
     {
       "id": "c6d2",
@@ -58,7 +58,7 @@
       "id": "8f3b",
       "title": "Final Fantasy VII Remake",
       "status": "in_progress",
-      "platform": "PlayStation"
+      "platform": "PLAYSTATION_5"
     },
     {
       "id": "4e2d",
@@ -83,12 +83,6 @@
       "title": "Control",
       "status": "in_progress",
       "platform": "PC"
-    },
-    {
-      "title": "Sekiro: Shadows Die Twice",
-      "status": "completed",
-      "platform": "in_backlog",
-      "id": "uhySc8A"
     }
   ]
 }
