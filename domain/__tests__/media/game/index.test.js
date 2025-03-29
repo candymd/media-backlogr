@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { Game } from "../../../media/entities/Game";
-import { MEDIA_STATUS_TYPES } from "../../../config/media";
+import { MEDIA_STATUS_TYPES } from "../../../config";
 
 describe("Game", () => {
   it("returns a valid game object", () => {

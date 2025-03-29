@@ -1,7 +1,7 @@
 import { beforeEach, describe, it, vi, expect } from "vitest";
 import { GetAllGamesUseCase } from "../useCases/getAllGamesUseCase";
 import { Game } from "../../../domain/media/entities/Game";
-import { MEDIA_STATUS_TYPES } from "../../../domain/config/media";
+import { MEDIA_STATUS_TYPES } from "../../../domain/config";
 
 describe("GetAllGamesUseCase", () => {
   let mockGameRepository;

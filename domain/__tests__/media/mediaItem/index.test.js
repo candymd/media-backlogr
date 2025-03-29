@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { MediaItem } from "../../../media/entities/MediaItem";
-import { MEDIA_STATUS_TYPES } from "../../../config/media";
+import { MEDIA_STATUS_TYPES } from "../../../config";
 
 describe("MediaItem", () => {
   it("returns a valid mediaItem object", () => {
