@@ -73,9 +73,15 @@ export class InMemoryGameRepository extends MediaItemRepository {
     return this.games;
   }
 
-  async add(gameData) {
+  async add({ title, status, platform }) {
+    const gameData = {
+      id: (this.games.length + 1).toString(),
+      title,
+      status,
+      platform,
+    };
+
     const newGame = new Game(gameData);
-    newGame.id = (this.games.length + 1).toString();
     this.games.push(newGame);
     return newGame;
   }
