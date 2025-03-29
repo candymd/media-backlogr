@@ -8,12 +8,10 @@ export class AddGameUseCase {
       throw new Error("Missing required fields");
     }
 
-    const newGame = await this._repository.add(gameData);
-
-    if (!newGame) {
+    try {
+      await this._repository.add(gameData);
+    } catch {
       throw new Error("Failed to add game");
     }
-
-    return newGame;
   }
 }

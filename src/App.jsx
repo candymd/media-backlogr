@@ -1,5 +1,5 @@
 import { UseCaseProvider } from "../application/context/UseCaseProvider";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import GamesTable from "./components/gamesTable";
 import AddGameForm from "./components/addGameForm";
@@ -20,24 +20,28 @@ function App() {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    const getAllGames = async () => {
-      try {
-        const allGames = await getAllGamesUseCase.execute();
-        setGames(allGames);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const handleAddGameFormSubmit = () => {
+    fetchGames();
+  };
 
-    getAllGames();
+  const fetchGames = useCallback(async () => {
+    try {
+      const allGames = await getAllGamesUseCase.execute();
+      setGames(allGames);
+    } catch (error) {
+      console.error(error);
+    }
   }, [getAllGamesUseCase]);
+
+  useEffect(() => {
+    fetchGames();
+  }, [fetchGames, getAllGamesUseCase]);
 
   return (
     <UseCaseProvider>
       {isModalOpen && (
         <Modal open={isModalOpen} onClose={handleCloseModal}>
-          <AddGameForm />
+          <AddGameForm onSubmit={handleAddGameFormSubmit} />
         </Modal>
       )}
       <div className="container mx-auto p-4">

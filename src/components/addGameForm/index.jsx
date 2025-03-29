@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useUseCases } from "../../../application/context";
 
-const AddGameForm = () => {
+const AddGameForm = ({ onSubmit }) => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [title, setTitle] = useState("");
@@ -19,6 +20,8 @@ const AddGameForm = () => {
       setTitle("");
       setStatus("");
       setPlatform("");
+
+      onSubmit();
     } catch (error) {
       setError(error.message);
     }
