@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { MediaItemRepository } from "../../domain/media/repositories/mediaItemRepository";
 import { API_URL } from "../../domain/config";
 import { Game } from "../../domain/media/entities/Game";
@@ -57,7 +56,15 @@ export class HttpGamesRepository extends MediaItemRepository {
   }
 
   async deleteById({ id }) {
-    // TODO: Implement
+    try {
+      await this.#httpFetcher.delete(`${API_URL}/games/${id}`);
+    } catch (error) {
+      if (error.status === 404) {
+        throw new Error("NOT_FOUND_ERROR");
+      }
+
+      throw new Error(error);
+    }
   }
 
   fromJsonGameResponseToDomainGame(game) {
