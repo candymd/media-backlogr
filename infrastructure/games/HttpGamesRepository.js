@@ -23,18 +23,37 @@ export class HttpGamesRepository extends MediaItemRepository {
 
   async add({ title, status, platform }) {
     try {
-      await this.#httpFetcher.post(`${API_URL}/games`, {
+      const newGame = await this.#httpFetcher.post(`${API_URL}/games`, {
         title,
         status,
         platform,
       });
+
+      return this.fromJsonGameResponseToDomainGame(newGame);
     } catch (error) {
       throw new Error(error);
     }
   }
 
   async updateById({ id, title, status, platform }) {
-    // TODO: Implement
+    try {
+      const updatedGame = await this.#httpFetcher.put(
+        `${API_URL}/games/${id}`,
+        {
+          title,
+          status,
+          platform,
+        }
+      );
+
+      return this.fromJsonGameResponseToDomainGame(updatedGame);
+    } catch (error) {
+      if (error.status === 400) {
+        throw new Error("NOT_FOUND_ERROR");
+      }
+
+      throw new Error(error);
+    }
   }
 
   async deleteById({ id }) {

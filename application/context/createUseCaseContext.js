@@ -1,6 +1,7 @@
-import { GetAllGamesUseCase } from "../media/useCases/getAllGamesUseCase";
 import { AddGameUseCase } from "../media/useCases/addGameUseCase";
+import { GetAllGamesUseCase } from "../media/useCases/getAllGamesUseCase";
 import { HttpGamesRepository } from "../../infrastructure/games/httpGamesRepository";
+import { UpdateGameByIdUseCase } from "../media/useCases/updateGameByIdUseCase";
 import axios from "axios";
 
 export const createUseCaseContext = () => {
@@ -16,9 +17,14 @@ export const createUseCaseContext = () => {
     repository: gameRepository,
   });
 
+  const updateGameByIdUseCase = new UpdateGameByIdUseCase({
+    repository: gameRepository,
+  });
+
   const useCases = {
-    getAllGamesUseCase,
     addGameUseCase,
+    getAllGamesUseCase,
+    updateGameByIdUseCase,
   };
 
   return useCases;
