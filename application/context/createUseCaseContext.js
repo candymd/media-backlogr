@@ -1,9 +1,14 @@
-import { InMemoryGameRepository } from "../../infrastructure/media/repositories/InMemoryGameRepository";
-import { GetAllGamesUseCase } from "../media/useCases/getAllGamesUseCase";
 import { AddGameUseCase } from "../media/useCases/addGameUseCase";
+import { GetAllGamesUseCase } from "../media/useCases/getAllGamesUseCase";
+import { HttpGamesRepository } from "../../infrastructure/games/httpGamesRepository";
+import { UpdateGameByIdUseCase } from "../media/useCases/updateGameByIdUseCase";
+import { DeleteGameByIdUseCase } from "../media/useCases/deleteGameByIdUseCase";
+import axios from "axios";
 
 export const createUseCaseContext = () => {
-  const gameRepository = new InMemoryGameRepository();
+  const gameRepository = new HttpGamesRepository({
+    httpFetcher: axios,
+  });
 
   const getAllGamesUseCase = new GetAllGamesUseCase({
     repository: gameRepository,
@@ -13,9 +18,19 @@ export const createUseCaseContext = () => {
     repository: gameRepository,
   });
 
+  const updateGameByIdUseCase = new UpdateGameByIdUseCase({
+    repository: gameRepository,
+  });
+
+  const deleteGameByIdUseCase = new DeleteGameByIdUseCase({
+    repository: gameRepository,
+  });
+
   const useCases = {
-    getAllGamesUseCase,
     addGameUseCase,
+    getAllGamesUseCase,
+    updateGameByIdUseCase,
+    deleteGameByIdUseCase,
   };
 
   return useCases;

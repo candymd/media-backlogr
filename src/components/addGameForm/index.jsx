@@ -64,9 +64,9 @@ const AddGameForm = ({ onSubmit }) => {
             required
           >
             <option value="">Select Platform</option>
-            <option value="in_backlog">PC</option>
-            <option value="in_progress">XBOX</option>
-            <option value="completed">PS5</option>
+            <option value="PC">PC</option>
+            <option value="XBOX">XBOX</option>
+            <option value="PLAYSTATION_5">PS5</option>
           </select>
         </div>
         <button

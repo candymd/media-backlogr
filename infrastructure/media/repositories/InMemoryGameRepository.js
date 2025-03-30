@@ -1,6 +1,6 @@
 import { Game } from "../../../domain/media/entities/Game";
 import { MediaItemRepository } from "../../../domain/media/repositories/mediaItemRepository";
-import { MEDIA_STATUS_TYPES } from "../../../domain/config/media";
+import { MEDIA_STATUS_TYPES } from "../../../domain/config";
 
 export class InMemoryGameRepository extends MediaItemRepository {
   constructor() {
@@ -22,13 +22,13 @@ export class InMemoryGameRepository extends MediaItemRepository {
         id: "3",
         title: "Red Dead Redemption 2",
         status: MEDIA_STATUS_TYPES.COMPLETED,
-        platform: "PLAYSTATION",
+        platform: "PLAYSTATION_5",
       }),
       new Game({
         id: "4",
         title: "Halo Infinite",
         status: MEDIA_STATUS_TYPES.IN_BACKLOG,
-        platform: "PLAYSTATION",
+        platform: "PLAYSTATION_5",
       }),
       new Game({
         id: "5",
@@ -58,7 +58,7 @@ export class InMemoryGameRepository extends MediaItemRepository {
         id: "9",
         title: "Gears 5",
         status: MEDIA_STATUS_TYPES.IN_BACKLOG,
-        platform: "PLAYSTATION",
+        platform: "PLAYSTATION_5",
       }),
       new Game({
         id: "10",
@@ -73,9 +73,15 @@ export class InMemoryGameRepository extends MediaItemRepository {
     return this.games;
   }
 
-  async add(gameData) {
+  async add({ title, status, platform }) {
+    const gameData = {
+      id: (this.games.length + 1).toString(),
+      title,
+      status,
+      platform,
+    };
+
     const newGame = new Game(gameData);
-    newGame.id = (this.games.length + 1).toString();
     this.games.push(newGame);
     return newGame;
   }

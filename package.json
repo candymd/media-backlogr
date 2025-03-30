@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "db": "json-server --watch ./data/db.json --port 8080",
+    "dev:db": "npm run dev & npm run db",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -13,6 +15,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.12",
+    "axios": "^1.8.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwindcss": "^4.0.12"
@@ -27,6 +30,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
+    "json-server": "^1.0.0-beta.3",
     "vite": "^6.1.0",
     "vitest": "^3.0.6"
   }

@@ -1,43 +1,47 @@
 import { validateStatus } from "../services/validateStatusTypes";
 
 export class MediaItem {
+  #id;
+  #title;
+  #status;
+
   constructor({ id, title, status }) {
-    this._id = id;
-    this._title = title;
+    this.#id = id;
+    this.#title = title;
     validateStatus(status);
-    this._status = status;
+    this.#status = status;
   }
 
   get id() {
-    return this._id;
+    return this.#id;
   }
 
   get title() {
-    return this._title;
+    return this.#title;
   }
 
   get status() {
-    return this._status;
+    return this.#status;
   }
 
   set id(value) {
-    this._id = value;
+    this.#id = value;
   }
 
   set title(value) {
-    this._title = value;
+    this.#title = value;
   }
 
   set status(value) {
     validateStatus(value);
-    this._status = value;
+    this.#status = value;
   }
 
   toJSON() {
     return {
-      id: this._id,
-      title: this._title,
-      status: this._status,
+      id: this.#id,
+      title: this.#title,
+      status: this.#status,
     };
   }
 }

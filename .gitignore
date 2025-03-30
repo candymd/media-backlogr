@@ -25,3 +25,5 @@ app_structure.md
 *.njsproj
 *.sln
 *.sw?
+
+data/db.json
