@@ -22,13 +22,13 @@ export class HttpGamesRepository extends MediaItemRepository {
 
   async add({ title, status, platform }) {
     try {
-      const newGame = await this.#httpFetcher.post(`${API_URL}/games`, {
+      const { data } = await this.#httpFetcher.post(`${API_URL}/games`, {
         title,
         status,
         platform,
       });
 
-      return this.fromJsonGameResponseToDomainGame(newGame);
+      return this.fromJsonGameResponseToDomainGame(data);
     } catch (error) {
       throw new Error(error);
     }
@@ -36,16 +36,13 @@ export class HttpGamesRepository extends MediaItemRepository {
 
   async updateById({ id, title, status, platform }) {
     try {
-      const updatedGame = await this.#httpFetcher.put(
-        `${API_URL}/games/${id}`,
-        {
-          title,
-          status,
-          platform,
-        }
-      );
+      const { data } = await this.#httpFetcher.put(`${API_URL}/games/${id}`, {
+        title,
+        status,
+        platform,
+      });
 
-      return this.fromJsonGameResponseToDomainGame(updatedGame);
+      return this.fromJsonGameResponseToDomainGame(data);
     } catch (error) {
       if (error.status === 400) {
         throw new Error("NOT_FOUND_ERROR");
@@ -68,6 +65,7 @@ export class HttpGamesRepository extends MediaItemRepository {
   }
 
   fromJsonGameResponseToDomainGame(game) {
+    console.log(game);
     return new Game({
       id: game.id,
       title: game.title,
