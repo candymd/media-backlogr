@@ -1,58 +1,43 @@
-import { beforeEach, describe, it, vi, expect } from "vitest";
+import { beforeEach, describe, it, expect } from "vitest";
 import { GetAllMoviesUseCase } from "../useCases/getAllMoviesUseCase";
-import { MEDIA_STATUS_TYPES } from "../../../domain/config";
+import { InMemoryMoviesRepository } from "../../../infrastructure/movies/InMemoryMoviesRepository";
 
 describe("GetAllMoviesUseCase", () => {
-  let mockMovieRepository;
+  let movieRepository;
   let getAllMoviesUseCase;
 
   beforeEach(() => {
-    mockMovieRepository = {
-      getAll: vi.fn(),
-    };
-
+    movieRepository = new InMemoryMoviesRepository();
     getAllMoviesUseCase = new GetAllMoviesUseCase({
-      repository: mockMovieRepository,
+      repository: movieRepository,
     });
   });
 
-  it("gets all movies", async () => {
-    const mockMovies = [
-      {
-        id: "123456",
-        title: "The Matrix",
-        status: MEDIA_STATUS_TYPES.COMPLETED,
-        releaseYear: 1999,
-        genre: "Action",
-        director: "The Wachowskis",
-        multimedia: [
-          {
-            type: "image",
-            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
-          },
-        ],
-      },
-      {
-        id: "789012",
-        title: "Inception",
-        status: MEDIA_STATUS_TYPES.PENDING,
-        releaseYear: 2010,
-        genre: "Action",
-        director: "Christopher Nolan",
-        multimedia: [
-          {
-            type: "image",
-            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
-          },
-        ],
-      },
-    ];
+  it("returns all movies from the repository", async () => {
+    const allMovies = await getAllMoviesUseCase.execute();
 
-    mockMovieRepository.getAll.mockResolvedValue(mockMovies);
+    expect(allMovies).toHaveLength(6);
 
-    const movies = await getAllMoviesUseCase.execute();
+    expect(allMovies[0]).toEqual({
+      id: "1",
+      title: "The Dark Knight",
+      status: "completed",
+      director: "Christopher Nolan",
+      releaseYear: 2008,
+      genre: "Action",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+        },
+      ],
+    });
+  });
 
-    expect(movies).toEqual(mockMovies);
-    expect(mockMovieRepository.getAll).toHaveBeenCalledTimes(1);
+  it("returns empty array when repository is empty", async () => {
+    movieRepository.movies = [];
+
+    const allMovies = await getAllMoviesUseCase.execute();
+    expect(allMovies).toEqual([]);
   });
 });

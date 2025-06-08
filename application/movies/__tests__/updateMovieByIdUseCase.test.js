@@ -1,51 +1,73 @@
-import { beforeEach, describe, it, vi, expect, afterEach } from "vitest";
+import { beforeEach, describe, it, expect } from "vitest";
 import { UpdateMovieByIdUseCase } from "../useCases/updateMovieByIdUseCase";
 import { MEDIA_STATUS_TYPES } from "../../../domain/config";
+import { InMemoryMoviesRepository } from "../../../infrastructure/movies/InMemoryMoviesRepository";
 
 describe("UpdateMovieByIdUseCase", () => {
-  let mockMovieRepository;
+  let movieRepository;
   let updateMovieByIdUseCase;
 
   beforeEach(() => {
-    mockMovieRepository = {
-      updateById: vi.fn(),
-    };
-
+    movieRepository = new InMemoryMoviesRepository();
     updateMovieByIdUseCase = new UpdateMovieByIdUseCase({
-      repository: mockMovieRepository,
+      repository: movieRepository,
     });
-  });
-
-  afterEach(() => {
-    vi.clearAllMocks();
   });
 
   it("updates a movie with valid data", async () => {
     const movieData = {
-      id: "123456",
-      title: "The Godfather",
+      id: "1",
+      title: "The Dark Knight - Updated",
       status: MEDIA_STATUS_TYPES.COMPLETED,
-      director: "Francis Ford Coppola",
-      releaseYear: 1972,
-      genre: "Crime Drama",
+      director: "Christopher Nolan",
+      releaseYear: 2008,
+      genre: "Action/Drama",
       multimedia: [
         {
           type: "image",
-          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          url: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
         },
       ],
     };
 
-    mockMovieRepository.updateById.mockResolvedValue(movieData);
-
     const updatedMovie = await updateMovieByIdUseCase.execute(movieData);
 
     expect(updatedMovie).toEqual(movieData);
-    expect(mockMovieRepository.updateById).toHaveBeenCalledWith(movieData);
+
+    const allMovies = await movieRepository.getAll();
+    expect(allMovies[0].toJSON()).toEqual(movieData);
   });
 
-  it("throws an error if the movie does not exist", async () => {
-    const movieData = {
+  it("throws an error when required fields are missing", async () => {
+    const invalidMovieData = {
+      id: "1",
+      title: "The Dark Knight - Updated",
+      status: MEDIA_STATUS_TYPES.COMPLETED,
+    };
+
+    await expect(
+      updateMovieByIdUseCase.execute(invalidMovieData)
+    ).rejects.toThrow("MISSING_REQUIRED_PARAMS");
+
+    const allMovies = await movieRepository.getAll();
+    expect(allMovies[0].toJSON()).toEqual({
+      id: "1",
+      title: "The Dark Knight",
+      status: MEDIA_STATUS_TYPES.COMPLETED,
+      director: "Christopher Nolan",
+      releaseYear: 2008,
+      genre: "Action",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+        },
+      ],
+    });
+  });
+
+  it("throws an error when the movie does not exist", async () => {
+    const nonExistingMovieData = {
       id: "999",
       title: "Non-Existing Movie",
       status: MEDIA_STATUS_TYPES.COMPLETED,
@@ -55,19 +77,13 @@ describe("UpdateMovieByIdUseCase", () => {
       multimedia: [
         {
           type: "image",
-          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          url: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
         },
       ],
     };
 
-    mockMovieRepository.updateById.mockRejectedValue(
-      new Error("NOT_FOUND_ERROR")
-    );
-
-    await expect(updateMovieByIdUseCase.execute(movieData)).rejects.toThrow(
-      "NOT_FOUND_ERROR"
-    );
-
-    expect(mockMovieRepository.updateById).toHaveBeenCalledWith(movieData);
+    await expect(
+      updateMovieByIdUseCase.execute(nonExistingMovieData)
+    ).rejects.toThrow("NOT_FOUND_ERROR");
   });
 });

@@ -1,6 +1,6 @@
-import { MediaItemRepository } from "../../domain/media/repositories/mediaItemRepository";
 import { API_URL } from "../../domain/config";
 import { Game } from "../../domain/media/entities/Game";
+import { MediaItemRepository } from "../../domain/media/repositories/MediaItemRepository";
 
 export class HttpGamesRepository extends MediaItemRepository {
   #httpFetcher;

@@ -1,4 +1,4 @@
-import { MediaItemRepository } from "../../domain/media/repositories/mediaItemRepository";
+import { MediaItemRepository } from "../../domain/media/repositories/MediaItemRepository";
 import { Movie } from "../../domain/media/entities/Movie";
 import { MEDIA_STATUS_TYPES } from "../../domain/config";
 
@@ -97,7 +97,7 @@ export class InMemoryMoviesRepository extends MediaItemRepository {
     return this.movies;
   }
 
-  async add({ title, status, director, releaseYear, genre }) {
+  async add({ title, status, director, releaseYear, genre, multimedia }) {
     const movieData = {
       id: (this.movies.length + 1).toString(),
       title,
@@ -105,10 +105,60 @@ export class InMemoryMoviesRepository extends MediaItemRepository {
       director,
       releaseYear,
       genre,
+      multimedia,
     };
 
     const newMovie = new Movie(movieData);
     this.movies.push(newMovie);
     return newMovie;
+  }
+
+  async updateById({
+    id,
+    title,
+    status,
+    director,
+    releaseYear,
+    genre,
+    multimedia,
+  }) {
+    if (
+      !id ||
+      !title ||
+      !status ||
+      !director ||
+      !releaseYear ||
+      !genre ||
+      !multimedia
+    ) {
+      throw new Error("MISSING_REQUIRED_PARAMS");
+    }
+
+    const movie = this.movies.find((movie) => movie.id === id);
+
+    if (!movie) {
+      throw new Error("NOT_FOUND_ERROR");
+    }
+
+    movie.title = title;
+    movie.status = status;
+    movie.director = director;
+    movie.releaseYear = releaseYear;
+    movie.genre = genre;
+    movie.multimedia = multimedia;
+
+    return movie;
+  }
+
+  async deleteById({ id }) {
+    const movie = this.movies.find((movie) => movie.id === id);
+    if (!movie) {
+      throw new Error("NOT_FOUND_ERROR");
+    }
+    this.movies = this.movies.filter((movie) => movie.id !== id);
+  }
+
+  fromJsonMovieResponseToDomainMovie(movie) {
+    return new Movie(movie);
   }
 }

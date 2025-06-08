@@ -1,28 +1,21 @@
-import { beforeEach, describe, it, vi, expect, afterEach } from "vitest";
+import { beforeEach, describe, it, expect } from "vitest";
 import { AddMovieUseCase } from "../useCases/addMovieUseCase";
 import { MEDIA_STATUS_TYPES } from "../../../domain/config";
+import { InMemoryMoviesRepository } from "../../../infrastructure/movies/InMemoryMoviesRepository";
 
 describe("AddMovieUseCase", () => {
+  let movieRepository;
   let addMovieUseCase;
-  let mockMovieRepository;
 
   beforeEach(() => {
-    mockMovieRepository = {
-      add: vi.fn(),
-    };
-
+    movieRepository = new InMemoryMoviesRepository();
     addMovieUseCase = new AddMovieUseCase({
-      repository: mockMovieRepository,
+      repository: movieRepository,
     });
   });
 
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
-
   it("adds a movie with valid data", async () => {
-    mockMovieRepository.add.mockResolvedValue({
-      id: "123456",
+    const movieData = {
       title: "The Princess Bride",
       status: MEDIA_STATUS_TYPES.COMPLETED,
       director: "Rob Reiner",
@@ -31,22 +24,7 @@ describe("AddMovieUseCase", () => {
       multimedia: [
         {
           type: "image",
-          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
-        },
-      ],
-    });
-
-    const movieData = {
-      id: "123456",
-      title: "The Princess Bride",
-      status: MEDIA_STATUS_TYPES.COMPLETED,
-      director: "Rob Reiner",
-      releaseYear: 1987,
-      genre: "My Awesome Genre",
-      multimedia: [
-        {
-          type: "image",
-          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          url: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
         },
       ],
     };
@@ -54,7 +32,7 @@ describe("AddMovieUseCase", () => {
     const addedMovie = await addMovieUseCase.execute(movieData);
 
     expect(addedMovie).toEqual({
-      id: "123456",
+      id: "7",
       title: "The Princess Bride",
       status: MEDIA_STATUS_TYPES.COMPLETED,
       director: "Rob Reiner",
@@ -63,31 +41,26 @@ describe("AddMovieUseCase", () => {
       multimedia: [
         {
           type: "image",
-          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          url: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
         },
       ],
     });
+
+    const allMovies = await movieRepository.getAll();
+    expect(allMovies).toHaveLength(7);
+    expect(allMovies[6].toJSON()).toEqual(addedMovie);
   });
 
-  it("throws an error if the title is missing", async () => {
-    const movieData = {
-      id: "123456",
-      status: MEDIA_STATUS_TYPES.COMPLETED,
-      director: "Rob Reiner",
-      releaseYear: 1987,
-      genre: "Comedy",
-      multimedia: [
-        {
-          type: "image",
-          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
-        },
-      ],
+  it("throws an error when required fields are missing", async () => {
+    const invalidMovieData = {
+      title: "The Princess Bride",
     };
 
-    await expect(addMovieUseCase.execute(movieData)).rejects.toThrow(
+    await expect(addMovieUseCase.execute(invalidMovieData)).rejects.toThrow(
       "MISSING_REQUIRED_PARAMS"
     );
 
-    expect(mockMovieRepository.add).not.toHaveBeenCalled();
+    const allMovies = await movieRepository.getAll();
+    expect(allMovies).toHaveLength(6);
   });
 });
