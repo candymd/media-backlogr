@@ -84,5 +84,55 @@
       "status": "in_progress",
       "platform": "PC"
     }
+  ],
+  "movies": [
+    {
+      "id": "1d4e",
+      "title": "The Matrix",
+      "status": "completed",
+      "releaseYear": 1999,
+      "director": "The Wachowskis",
+      "genre": "Science Fiction"
+    },
+    {
+      "id": "2f5g",
+      "title": "Pretty Woman",
+      "status": "in_progress",
+      "releaseYear": 1990,
+      "director": "Gary Marshall",
+      "genre": "Romance"
+    },
+    {
+      "id": "3h6h",
+      "title": "The Lord of the Rings: The Return of the King",
+      "status": "completed",
+      "releaseYear": 2003,
+      "director": "Peter Jackson",
+      "genre": "Adventure"
+    },
+    {
+      "id": "4i7i",
+      "title": "Ferris Bueller's Day Off",
+      "status": "completed",
+      "releaseYear": 1986,
+      "director": "John Hughes",
+      "genre": "Adventure"
+    },
+    {
+      "id": "5j8j",
+      "title": "The Princess Bride",
+      "status": "completed",
+      "releaseYear": 1987,
+      "director": "Rob Reiner",
+      "genre": "Adventure"
+    },
+    {
+      "id": "6k9k",
+      "title": "The Goonies",
+      "status": "completed",
+      "releaseYear": 1985,
+      "director": "Richard Donner",
+      "genre": "Adventure"
+    }
   ]
 }
