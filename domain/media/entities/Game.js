@@ -4,8 +4,8 @@ import { validatePlatform } from "../services/validatePlatformTypes";
 export class Game extends MediaItem {
   #platform;
 
-  constructor({ id, title, status, platform }) {
-    super({ id, title, status });
+  constructor({ id, title, status, platform, multimedia }) {
+    super({ id, title, status, multimedia });
     validatePlatform(platform);
     this.#platform = platform;
   }

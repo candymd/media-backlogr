@@ -28,6 +28,12 @@ describe("UpdateMovieByIdUseCase", () => {
       director: "Francis Ford Coppola",
       releaseYear: 1972,
       genre: "Crime Drama",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+        },
+      ],
     };
 
     mockMovieRepository.updateById.mockResolvedValue(movieData);
@@ -46,6 +52,12 @@ describe("UpdateMovieByIdUseCase", () => {
       director: "Unknown Director",
       releaseYear: 2024,
       genre: "Unknown",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+        },
+      ],
     };
 
     mockMovieRepository.updateById.mockRejectedValue(

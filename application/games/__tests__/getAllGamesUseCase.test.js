@@ -24,12 +24,24 @@ describe("GetAllGamesUseCase", () => {
         title: "My Awesome Game Title",
         status: MEDIA_STATUS_TYPES.COMPLETED,
         platform: "PC",
+        multimedia: [
+          {
+            type: "image",
+            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          },
+        ],
       }),
       new Game({
         id: "7891011",
         title: "My Other Game Title",
         status: MEDIA_STATUS_TYPES.IN_PROGRESS,
         platform: "PC",
+        multimedia: [
+          {
+            type: "image",
+            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          },
+        ],
       }),
     ]);
 
@@ -41,12 +53,24 @@ describe("GetAllGamesUseCase", () => {
         title: "My Awesome Game Title",
         status: MEDIA_STATUS_TYPES.COMPLETED,
         platform: "PC",
+        multimedia: [
+          {
+            type: "image",
+            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          },
+        ],
       },
       {
         id: "7891011",
         title: "My Other Game Title",
         status: MEDIA_STATUS_TYPES.IN_PROGRESS,
         platform: "PC",
+        multimedia: [
+          {
+            type: "image",
+            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          },
+        ],
       },
     ]);
   });

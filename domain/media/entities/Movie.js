@@ -5,8 +5,8 @@ export class Movie extends MediaItem {
   #releaseYear;
   #genre;
 
-  constructor({ id, title, status, director, releaseYear, genre }) {
-    super({ id, title, status });
+  constructor({ id, title, status, director, releaseYear, genre, multimedia }) {
+    super({ id, title, status, multimedia });
     this.#director = director;
     this.#releaseYear = releaseYear;
     this.#genre = genre;

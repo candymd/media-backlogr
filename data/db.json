@@ -4,85 +4,169 @@
       "id": "b2f1",
       "title": "Resident Evil Village",
       "status": "completed",
-      "platform": "PC"
+      "platform": "PC",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "e9d3",
       "title": "The Witcher 3",
       "status": "in_progress",
-      "platform": "PLAYSTATION_5"
+      "platform": "PLAYSTATION_5",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "a4f7",
       "title": "Cyberpunk 2077",
       "status": "completed",
-      "platform": "PC"
+      "platform": "PC",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "d1a9",
       "title": "Hades",
       "status": "completed",
-      "platform": "XBOX"
+      "platform": "XBOX",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "f2c8",
       "title": "Assassin's Creed Valhalla",
       "status": "in_progress",
-      "platform": "PLAYSTATION_5"
+      "platform": "PLAYSTATION_5",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "7a1f",
       "title": "Ghost of Tsushima",
       "status": "completed",
-      "platform": "PLAYSTATION_5"
+      "platform": "PLAYSTATION_5",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "9b5c",
       "title": "Spider-Man: Miles Morales",
       "status": "in_progress",
-      "platform": "PLAYSTATION_5"
+      "platform": "PLAYSTATION_5",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "c6d2",
       "title": "Sekiro: Shadows Die Twice",
       "status": "completed",
-      "platform": "PC"
+      "platform": "PC",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "0a7e",
       "title": "Red Dead Redemption 2",
       "status": "completed",
-      "platform": "PC"
+      "platform": "PC",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "8f3b",
       "title": "Final Fantasy VII Remake",
       "status": "in_progress",
-      "platform": "PLAYSTATION_5"
+      "platform": "PLAYSTATION_5",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "4e2d",
       "title": "Dark Souls III",
       "status": "completed",
-      "platform": "PC"
+      "platform": "PC",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "3c6a",
       "title": "Elden Ring",
       "status": "in_progress",
-      "platform": "PC"
+      "platform": "PC",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "5b8f",
       "title": "Death Stranding",
       "status": "completed",
-      "platform": "PC"
+      "platform": "PC",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "1d4e",
       "title": "Control",
       "status": "in_progress",
-      "platform": "PC"
+      "platform": "PC",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     }
   ],
   "movies": [
@@ -92,7 +176,13 @@
       "status": "completed",
       "releaseYear": 1999,
       "director": "The Wachowskis",
-      "genre": "Science Fiction"
+      "genre": "Science Fiction",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "2f5g",
@@ -100,7 +190,13 @@
       "status": "in_progress",
       "releaseYear": 1990,
       "director": "Gary Marshall",
-      "genre": "Romance"
+      "genre": "Romance",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "3h6h",
@@ -108,7 +204,13 @@
       "status": "completed",
       "releaseYear": 2003,
       "director": "Peter Jackson",
-      "genre": "Adventure"
+      "genre": "Adventure",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "4i7i",
@@ -116,7 +218,13 @@
       "status": "completed",
       "releaseYear": 1986,
       "director": "John Hughes",
-      "genre": "Adventure"
+      "genre": "Adventure",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "5j8j",
@@ -124,7 +232,13 @@
       "status": "completed",
       "releaseYear": 1987,
       "director": "Rob Reiner",
-      "genre": "Adventure"
+      "genre": "Adventure",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     },
     {
       "id": "6k9k",
@@ -132,7 +246,13 @@
       "status": "completed",
       "releaseYear": 1985,
       "director": "Richard Donner",
-      "genre": "Adventure"
+      "genre": "Adventure",
+      "multimedia": [
+        {
+          "type": "image",
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+        }
+      ]
     }
   ]
 }

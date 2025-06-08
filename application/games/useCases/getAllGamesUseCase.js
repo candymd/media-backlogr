@@ -19,6 +19,7 @@ export class GetAllGamesUseCase {
       title: game.title,
       status: game.status,
       platform: game.platform,
+      multimedia: game.multimedia,
     };
   }
 }

@@ -21,7 +21,7 @@ export class HttpMoviesRepository extends MediaItemRepository {
     }
   }
 
-  async add({ title, status, director, releaseYear, genre }) {
+  async add({ title, status, director, releaseYear, genre, multimedia }) {
     try {
       const { data } = await this.#httpFetcher.post(`${API_URL}/movies`, {
         title,
@@ -29,6 +29,7 @@ export class HttpMoviesRepository extends MediaItemRepository {
         director,
         releaseYear,
         genre,
+        multimedia,
       });
 
       return this.fromJsonMovieResponseToDomainMovie(data);
@@ -37,7 +38,15 @@ export class HttpMoviesRepository extends MediaItemRepository {
     }
   }
 
-  async updateById({ id, title, status, director, releaseYear, genre }) {
+  async updateById({
+    id,
+    title,
+    status,
+    director,
+    releaseYear,
+    genre,
+    multimedia,
+  }) {
     try {
       const { data } = await this.#httpFetcher.put(`${API_URL}/movies/${id}`, {
         title,
@@ -45,6 +54,7 @@ export class HttpMoviesRepository extends MediaItemRepository {
         director,
         releaseYear,
         genre,
+        multimedia,
       });
 
       return this.fromJsonMovieResponseToDomainMovie(data);
@@ -77,6 +87,7 @@ export class HttpMoviesRepository extends MediaItemRepository {
       director: movie.director,
       releaseYear: movie.releaseYear,
       genre: movie.genre,
+      multimedia: movie.multimedia,
     });
   }
 }

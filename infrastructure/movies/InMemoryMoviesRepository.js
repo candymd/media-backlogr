@@ -13,14 +13,26 @@ export class InMemoryMoviesRepository extends MediaItemRepository {
         director: "Christopher Nolan",
         releaseYear: 2008,
         genre: "Action",
+        multimedia: [
+          {
+            type: "image",
+            url: `https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg`,
+          },
+        ],
       }),
       new Movie({
         id: "2",
         title: "Pride and Prejudice",
         status: MEDIA_STATUS_TYPES.IN_BACKLOG,
         director: "Joe Wright",
-        releaseYear: 2005,
+        releaseYear: 2006,
         genre: "Drama",
+        multimedia: [
+          {
+            type: "image",
+            url: `https://image.tmdb.org/t/p/w500/kMWyqBJPgQCZOhU8C8VcqwcQ3Fk.jpg`,
+          },
+        ],
       }),
       new Movie({
         id: "3",
@@ -29,6 +41,12 @@ export class InMemoryMoviesRepository extends MediaItemRepository {
         director: "Peter Jackson",
         releaseYear: 2003,
         genre: "Adventure",
+        multimedia: [
+          {
+            type: "image",
+            url: `https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg`,
+          },
+        ],
       }),
       new Movie({
         id: "4",
@@ -37,6 +55,12 @@ export class InMemoryMoviesRepository extends MediaItemRepository {
         director: "The Wachowskis",
         releaseYear: 1999,
         genre: "Action",
+        multimedia: [
+          {
+            type: "image",
+            url: `https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg`,
+          },
+        ],
       }),
       new Movie({
         id: "5",
@@ -45,6 +69,12 @@ export class InMemoryMoviesRepository extends MediaItemRepository {
         director: "Francis Ford Coppola",
         releaseYear: 1972,
         genre: "Crime",
+        multimedia: [
+          {
+            type: "image",
+            url: `https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg`,
+          },
+        ],
       }),
       new Movie({
         id: "6",
@@ -53,6 +83,12 @@ export class InMemoryMoviesRepository extends MediaItemRepository {
         director: "Hayao Miyazaki",
         releaseYear: 2008,
         genre: "Animation",
+        multimedia: [
+          {
+            type: "image",
+            url: `https://image.tmdb.org/t/p/w500/yp8vEZflGynlEylxEesbYasc06i.jpg`,
+          },
+        ],
       }),
     ];
   }
