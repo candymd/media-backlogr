@@ -1,5 +1,5 @@
 import { Game } from "../../domain/media/entities/Game";
-import { MediaItemRepository } from "../../domain/media/repositories/mediaItemRepository";
+import { MediaItemRepository } from "../../domain/media/repositories/MediaItemRepository";
 import { MEDIA_STATUS_TYPES } from "../../domain/config";
 
 export class InMemoryGameRepository extends MediaItemRepository {
