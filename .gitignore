@@ -13,7 +13,7 @@ dist-ssr
 *.local
 *.env
 app_structure.md
-
+.env
 
 # Editor directories and files
 .vscode/*
@@ -26,4 +26,11 @@ app_structure.md
 *.sln
 *.sw?
 
+# Data
 data/db.json
+
+# Build
+build/
+
+# Coverage
+coverage/
