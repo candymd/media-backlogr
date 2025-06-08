@@ -7,7 +7,7 @@ export class DeleteGameByIdUseCase {
 
   async execute({ id }) {
     if (!id) {
-      throw new Error("MISSING_REQUIRED_FIELD");
+      throw new Error("MISSING_REQUIRED_PARAMS");
     }
 
     return await this.#repository.deleteById({

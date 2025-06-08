@@ -7,7 +7,7 @@ export class AddGameUseCase {
 
   async execute({ title, status, platform }) {
     if (!title || !status || !platform) {
-      throw new Error("MISSING_REQUIRED_FIELDS");
+      throw new Error("MISSING_REQUIRED_PARAMS");
     }
 
     return await this.#repository.add({

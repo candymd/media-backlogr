@@ -1,6 +1,6 @@
-import { Game } from "../../../domain/media/entities/Game";
-import { MediaItemRepository } from "../../../domain/media/repositories/mediaItemRepository";
-import { MEDIA_STATUS_TYPES } from "../../../domain/config";
+import { Game } from "../../domain/media/entities/Game";
+import { MediaItemRepository } from "../../domain/media/repositories/mediaItemRepository";
+import { MEDIA_STATUS_TYPES } from "../../domain/config";
 
 export class InMemoryGameRepository extends MediaItemRepository {
   constructor() {

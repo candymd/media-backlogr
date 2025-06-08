@@ -33,7 +33,7 @@ describe("DeleteGameByIdUseCase", () => {
 
   it("throws an error if the id is not provided", async () => {
     await expect(deleteGameByIdUseCase.execute({})).rejects.toThrow(
-      "MISSING_REQUIRED_FIELD"
+      "MISSING_REQUIRED_PARAMS"
     );
 
     expect(mockGameRepository.deleteById).not.toHaveBeenCalled();
