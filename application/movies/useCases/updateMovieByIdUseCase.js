@@ -5,7 +5,15 @@ export class UpdateMovieByIdUseCase {
     this.#repository = repository;
   }
 
-  async execute({ id, title, status, director, releaseYear, genre }) {
+  async execute({
+    id,
+    title,
+    status,
+    director,
+    releaseYear,
+    genre,
+    multimedia,
+  }) {
     const movie = await this.#repository.updateById({
       id,
       title,
@@ -13,6 +21,7 @@ export class UpdateMovieByIdUseCase {
       director,
       releaseYear,
       genre,
+      multimedia,
     });
 
     return this.toJSON(movie);
@@ -26,6 +35,7 @@ export class UpdateMovieByIdUseCase {
       director: movie.director,
       releaseYear: movie.releaseYear,
       genre: movie.genre,
+      multimedia: movie.multimedia,
     };
   }
 }

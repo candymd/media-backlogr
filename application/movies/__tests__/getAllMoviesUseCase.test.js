@@ -23,12 +23,28 @@ describe("GetAllMoviesUseCase", () => {
         title: "The Matrix",
         status: MEDIA_STATUS_TYPES.COMPLETED,
         releaseYear: 1999,
+        genre: "Action",
+        director: "The Wachowskis",
+        multimedia: [
+          {
+            type: "image",
+            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          },
+        ],
       },
       {
         id: "789012",
         title: "Inception",
         status: MEDIA_STATUS_TYPES.PENDING,
         releaseYear: 2010,
+        genre: "Action",
+        director: "Christopher Nolan",
+        multimedia: [
+          {
+            type: "image",
+            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          },
+        ],
       },
     ];
 

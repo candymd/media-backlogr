@@ -4,12 +4,14 @@ export class MediaItem {
   #id;
   #title;
   #status;
+  #multimedia;
 
-  constructor({ id, title, status }) {
+  constructor({ id, title, status, multimedia }) {
     this.#id = id;
     this.#title = title;
     validateStatus(status);
     this.#status = status;
+    this.#multimedia = multimedia;
   }
 
   get id() {
@@ -37,11 +39,20 @@ export class MediaItem {
     this.#status = value;
   }
 
+  get multimedia() {
+    return this.#multimedia;
+  }
+
+  set multimedia(value) {
+    this.#multimedia = value;
+  }
+
   toJSON() {
     return {
       id: this.#id,
       title: this.#title,
       status: this.#status,
+      multimedia: this.#multimedia,
     };
   }
 }

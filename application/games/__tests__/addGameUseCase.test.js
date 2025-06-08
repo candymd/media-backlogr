@@ -20,6 +20,12 @@ describe("AddGameUseCase", () => {
       title: "My Awesome Game Title",
       status: MEDIA_STATUS_TYPES.COMPLETED,
       platform: "PC",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+        },
+      ],
     });
 
     const gameData = {
@@ -27,6 +33,12 @@ describe("AddGameUseCase", () => {
       title: "My Awesome Game Title",
       status: MEDIA_STATUS_TYPES.COMPLETED,
       platform: "PC",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+        },
+      ],
     };
 
     const addedGame = await addGameUseCase.execute(gameData);
@@ -36,6 +48,12 @@ describe("AddGameUseCase", () => {
       title: "My Awesome Game Title",
       status: MEDIA_STATUS_TYPES.COMPLETED,
       platform: "PC",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+        },
+      ],
     });
   });
 });

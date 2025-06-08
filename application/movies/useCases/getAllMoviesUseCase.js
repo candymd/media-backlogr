@@ -23,6 +23,7 @@ export class GetAllMoviesUseCase {
       director: movie.director,
       releaseYear: movie.releaseYear,
       genre: movie.genre,
+      multimedia: movie.multimedia,
     };
   }
 }

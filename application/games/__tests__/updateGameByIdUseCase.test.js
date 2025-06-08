@@ -26,6 +26,12 @@ describe("UpdateGameByIdUseCase", () => {
       title: "My Awesome Game Title",
       status: MEDIA_STATUS_TYPES.COMPLETED,
       platform: PLATFORM_TYPES.PC,
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+        },
+      ],
     };
 
     mockGameRepository.updateById.mockResolvedValue(gameData);
@@ -42,6 +48,12 @@ describe("UpdateGameByIdUseCase", () => {
       title: "Non-Existing Game",
       status: MEDIA_STATUS_TYPES.COMPLETED,
       platform: "PC",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+        },
+      ],
     };
 
     mockGameRepository.updateById.mockRejectedValue(

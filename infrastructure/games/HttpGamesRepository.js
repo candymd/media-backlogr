@@ -20,12 +20,13 @@ export class HttpGamesRepository extends MediaItemRepository {
     }
   }
 
-  async add({ title, status, platform }) {
+  async add({ title, status, platform, multimedia }) {
     try {
       const { data } = await this.#httpFetcher.post(`${API_URL}/games`, {
         title,
         status,
         platform,
+        multimedia,
       });
 
       return this.fromJsonGameResponseToDomainGame(data);
@@ -34,12 +35,13 @@ export class HttpGamesRepository extends MediaItemRepository {
     }
   }
 
-  async updateById({ id, title, status, platform }) {
+  async updateById({ id, title, status, platform, multimedia }) {
     try {
       const { data } = await this.#httpFetcher.put(`${API_URL}/games/${id}`, {
         title,
         status,
         platform,
+        multimedia,
       });
 
       return this.fromJsonGameResponseToDomainGame(data);
@@ -70,6 +72,7 @@ export class HttpGamesRepository extends MediaItemRepository {
       title: game.title,
       status: game.status,
       platform: game.platform,
+      multimedia: game.multimedia,
     });
   }
 }

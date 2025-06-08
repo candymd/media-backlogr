@@ -28,6 +28,12 @@ describe("AddMovieUseCase", () => {
       director: "Rob Reiner",
       releaseYear: 1987,
       genre: "Comedy",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+        },
+      ],
     });
 
     const movieData = {
@@ -37,6 +43,12 @@ describe("AddMovieUseCase", () => {
       director: "Rob Reiner",
       releaseYear: 1987,
       genre: "My Awesome Genre",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+        },
+      ],
     };
 
     const addedMovie = await addMovieUseCase.execute(movieData);
@@ -48,6 +60,12 @@ describe("AddMovieUseCase", () => {
       director: "Rob Reiner",
       releaseYear: 1987,
       genre: "Comedy",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+        },
+      ],
     });
   });
 
@@ -58,6 +76,12 @@ describe("AddMovieUseCase", () => {
       director: "Rob Reiner",
       releaseYear: 1987,
       genre: "Comedy",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+        },
+      ],
     };
 
     await expect(addMovieUseCase.execute(movieData)).rejects.toThrow(

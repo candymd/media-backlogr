@@ -5,7 +5,7 @@ export class AddMovieUseCase {
     this.#repository = repository;
   }
 
-  async execute({ title, status, director, releaseYear, genre }) {
+  async execute({ title, status, director, releaseYear, genre, multimedia }) {
     if (!title || !status || !director || !releaseYear || !genre) {
       throw new Error("MISSING_REQUIRED_PARAMS");
     }
@@ -16,6 +16,7 @@ export class AddMovieUseCase {
       director,
       releaseYear,
       genre,
+      multimedia,
     });
 
     return this.toJSON(movie);
@@ -29,6 +30,7 @@ export class AddMovieUseCase {
       director: movie.director,
       releaseYear: movie.releaseYear,
       genre: movie.genre,
+      multimedia: movie.multimedia,
     };
   }
 }

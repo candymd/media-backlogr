@@ -5,7 +5,7 @@ export class UpdateGameByIdUseCase {
     this.#repository = repository;
   }
 
-  async execute({ id, title, status, platform }) {
+  async execute({ id, title, status, platform, multimedia }) {
     if (!id || !title || !status || !platform) {
       throw new Error("MISSING_REQUIRED_PARAMS");
     }
@@ -15,6 +15,7 @@ export class UpdateGameByIdUseCase {
       title,
       status,
       platform,
+      multimedia,
     });
   }
 }

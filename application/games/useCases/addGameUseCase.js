@@ -5,7 +5,7 @@ export class AddGameUseCase {
     this.#repository = repository;
   }
 
-  async execute({ title, status, platform }) {
+  async execute({ title, status, platform, multimedia }) {
     if (!title || !status || !platform) {
       throw new Error("MISSING_REQUIRED_PARAMS");
     }
@@ -14,6 +14,7 @@ export class AddGameUseCase {
       title,
       status,
       platform,
+      multimedia,
     });
   }
 }
