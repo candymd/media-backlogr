@@ -65,7 +65,6 @@ export class HttpGamesRepository extends MediaItemRepository {
   }
 
   fromJsonGameResponseToDomainGame(game) {
-    console.log(game);
     return new Game({
       id: game.id,
       title: game.title,

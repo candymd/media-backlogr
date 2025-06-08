@@ -13,8 +13,7 @@ const AddGameForm = ({ onSubmit }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const newGAme = await addGameUseCase.execute({ title, status, platform });
-      console.log(newGAme);
+      await addGameUseCase.execute({ title, status, platform });
       setSuccess("Game added successfully!");
 
       setTitle("");
