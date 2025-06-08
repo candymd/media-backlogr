@@ -1,69 +1,82 @@
-import { beforeEach, describe, it, vi, expect, afterEach } from "vitest";
+import { beforeEach, describe, it, expect } from "vitest";
 import { UpdateGameByIdUseCase } from "../useCases/updateGameByIdUseCase";
 import { MEDIA_STATUS_TYPES, PLATFORM_TYPES } from "../../../domain/config";
+import { InMemoryGameRepository } from "../../../infrastructure/games/InMemoryGameRepository";
 
 describe("UpdateGameByIdUseCase", () => {
-  let mockGameRepository;
+  let gameRepository;
   let updateGameByIdUseCase;
 
   beforeEach(() => {
-    mockGameRepository = {
-      updateById: vi.fn(),
-    };
-
+    gameRepository = new InMemoryGameRepository();
     updateGameByIdUseCase = new UpdateGameByIdUseCase({
-      repository: mockGameRepository,
+      repository: gameRepository,
     });
-  });
-
-  afterEach(() => {
-    vi.clearAllMocks();
   });
 
   it("updates a game by id and returns it", async () => {
     const gameData = {
-      id: "123456",
-      title: "My Awesome Game Title",
+      id: "1",
+      title: "The Last of Us Part II - Updated",
       status: MEDIA_STATUS_TYPES.COMPLETED,
       platform: PLATFORM_TYPES.PC,
       multimedia: [
         {
           type: "image",
-          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.jpg",
         },
       ],
     };
-
-    mockGameRepository.updateById.mockResolvedValue(gameData);
 
     const updatedGame = await updateGameByIdUseCase.execute(gameData);
 
     expect(updatedGame).toEqual(gameData);
-    expect(mockGameRepository.updateById).toHaveBeenCalledWith(gameData);
+
+    const allGames = await gameRepository.getAll();
+    expect(allGames[0]).toEqual(gameData);
   });
 
-  it("should throw an error if the game does not exist", async () => {
-    const updatedGameData = {
-      id: "999",
-      title: "Non-Existing Game",
-      status: MEDIA_STATUS_TYPES.COMPLETED,
+  it("throws an error when required fields are missing", async () => {
+    const invalidGameData = {
+      id: "1",
+      title: "The Last of Us Part II - Updated",
+    };
+
+    await expect(
+      updateGameByIdUseCase.execute(invalidGameData)
+    ).rejects.toThrow("MISSING_REQUIRED_PARAMS");
+
+    const allGames = await gameRepository.getAll();
+    expect(allGames[0]).toEqual({
+      id: "1",
+      title: "The Last of Us Part II",
+      status: MEDIA_STATUS_TYPES.IN_PROGRESS,
       platform: "PC",
       multimedia: [
         {
           type: "image",
-          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.jpg",
+        },
+      ],
+    });
+  });
+
+  it("throws an error when the game does not exist", async () => {
+    const nonExistingGameData = {
+      id: "999",
+      title: "Non-Existing Game",
+      status: MEDIA_STATUS_TYPES.COMPLETED,
+      platform: PLATFORM_TYPES.PC,
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.jpg",
         },
       ],
     };
 
-    mockGameRepository.updateById.mockRejectedValue(
-      new Error("NOT_FOUND_ERROR")
-    );
-
     await expect(
-      updateGameByIdUseCase.execute(updatedGameData)
+      updateGameByIdUseCase.execute(nonExistingGameData)
     ).rejects.toThrow("NOT_FOUND_ERROR");
-
-    expect(mockGameRepository.updateById).toHaveBeenCalledWith(updatedGameData);
   });
 });

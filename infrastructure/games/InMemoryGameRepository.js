@@ -130,19 +130,58 @@ export class InMemoryGameRepository extends MediaItemRepository {
   }
 
   async getAll() {
-    return this.games;
+    return this.games.map((game) => this.toJSON(game));
   }
 
-  async add({ title, status, platform }) {
+  async add({ title, status, platform, multimedia }) {
+    if (!title || !status || !platform || !multimedia) {
+      throw new Error("MISSING_REQUIRED_PARAMS");
+    }
+
     const gameData = {
       id: (this.games.length + 1).toString(),
       title,
       status,
       platform,
+      multimedia,
     };
 
     const newGame = new Game(gameData);
     this.games.push(newGame);
-    return newGame;
+    return this.toJSON(newGame);
+  }
+
+  async updateById({ id, title, status, platform, multimedia }) {
+    if (!id || !title || !status || !platform || !multimedia) {
+      throw new Error("MISSING_REQUIRED_PARAMS");
+    }
+
+    const game = this.games.find((game) => game.id === id);
+    if (!game) {
+      throw new Error("NOT_FOUND_ERROR");
+    }
+    game.title = title;
+    game.status = status;
+    game.platform = platform;
+    game.multimedia = multimedia;
+    return this.toJSON(game);
+  }
+
+  async deleteById({ id }) {
+    const game = this.games.find((game) => game.id === id);
+    if (!game) {
+      throw new Error("NOT_FOUND_ERROR");
+    }
+    this.games = this.games.filter((game) => game.id !== id);
+  }
+
+  toJSON(game) {
+    return {
+      id: game.id,
+      title: game.title,
+      status: game.status,
+      platform: game.platform,
+      multimedia: game.multimedia,
+    };
   }
 }

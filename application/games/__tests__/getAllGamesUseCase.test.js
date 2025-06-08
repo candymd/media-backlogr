@@ -1,77 +1,41 @@
-import { beforeEach, describe, it, vi, expect } from "vitest";
+import { beforeEach, describe, it, expect } from "vitest";
 import { GetAllGamesUseCase } from "../useCases/getAllGamesUseCase";
-import { Game } from "../../../domain/media/entities/Game";
-import { MEDIA_STATUS_TYPES } from "../../../domain/config";
+import { InMemoryGameRepository } from "../../../infrastructure/games/InMemoryGameRepository";
 
 describe("GetAllGamesUseCase", () => {
-  let mockGameRepository;
+  let gameRepository;
   let getAllGamesUseCase;
 
   beforeEach(() => {
-    mockGameRepository = {
-      getAll: vi.fn(),
-    };
-
+    gameRepository = new InMemoryGameRepository();
     getAllGamesUseCase = new GetAllGamesUseCase({
-      repository: mockGameRepository,
+      repository: gameRepository,
     });
   });
 
-  it("returns a valid list of games", async () => {
-    mockGameRepository.getAll.mockResolvedValue([
-      new Game({
-        id: "123456",
-        title: "My Awesome Game Title",
-        status: MEDIA_STATUS_TYPES.COMPLETED,
-        platform: "PC",
-        multimedia: [
-          {
-            type: "image",
-            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
-          },
-        ],
-      }),
-      new Game({
-        id: "7891011",
-        title: "My Other Game Title",
-        status: MEDIA_STATUS_TYPES.IN_PROGRESS,
-        platform: "PC",
-        multimedia: [
-          {
-            type: "image",
-            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
-          },
-        ],
-      }),
-    ]);
-
+  it("returns all games from the repository", async () => {
     const allGames = await getAllGamesUseCase.execute();
 
-    expect(allGames).toEqual([
-      {
-        id: "123456",
-        title: "My Awesome Game Title",
-        status: MEDIA_STATUS_TYPES.COMPLETED,
-        platform: "PC",
-        multimedia: [
-          {
-            type: "image",
-            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
-          },
-        ],
-      },
-      {
-        id: "7891011",
-        title: "My Other Game Title",
-        status: MEDIA_STATUS_TYPES.IN_PROGRESS,
-        platform: "PC",
-        multimedia: [
-          {
-            type: "image",
-            url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
-          },
-        ],
-      },
-    ]);
+    expect(allGames).toHaveLength(10);
+
+    expect(allGames[0]).toEqual({
+      id: "1",
+      title: "The Last of Us Part II",
+      status: "in_progress",
+      platform: "PC",
+      multimedia: [
+        {
+          type: "image",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.jpg",
+        },
+      ],
+    });
+  });
+
+  it("returns empty array when repository is empty", async () => {
+    gameRepository.games = [];
+
+    const allGames = await getAllGamesUseCase.execute();
+    expect(allGames).toEqual([]);
   });
 });

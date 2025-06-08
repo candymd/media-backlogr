@@ -1,42 +1,27 @@
-import { beforeEach, describe, it, vi, expect } from "vitest";
+import { beforeEach, describe, it, expect } from "vitest";
 import { AddGameUseCase } from "../useCases/addGameUseCase";
-import { MEDIA_STATUS_TYPES } from "../../../domain/config";
+import { MEDIA_STATUS_TYPES, PLATFORM_TYPES } from "../../../domain/config";
+import { InMemoryGameRepository } from "../../../infrastructure/games/InMemoryGameRepository";
 
 describe("AddGameUseCase", () => {
-  let mockGameRepository;
+  let gameRepository;
   let addGameUseCase;
 
   beforeEach(() => {
-    mockGameRepository = {
-      add: vi.fn(),
-    };
-
-    addGameUseCase = new AddGameUseCase({ repository: mockGameRepository });
+    gameRepository = new InMemoryGameRepository();
+    addGameUseCase = new AddGameUseCase({ repository: gameRepository });
   });
 
   it("adds a game", async () => {
-    mockGameRepository.add.mockResolvedValue({
-      id: "123456",
-      title: "My Awesome Game Title",
-      status: MEDIA_STATUS_TYPES.COMPLETED,
-      platform: "PC",
-      multimedia: [
-        {
-          type: "image",
-          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
-        },
-      ],
-    });
-
     const gameData = {
-      id: "123456",
+      id: "11",
       title: "My Awesome Game Title",
       status: MEDIA_STATUS_TYPES.COMPLETED,
       platform: "PC",
       multimedia: [
         {
           type: "image",
-          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.jpg",
         },
       ],
     };
@@ -44,16 +29,36 @@ describe("AddGameUseCase", () => {
     const addedGame = await addGameUseCase.execute(gameData);
 
     expect(addedGame).toEqual({
-      id: "123456",
+      id: "11",
       title: "My Awesome Game Title",
       status: MEDIA_STATUS_TYPES.COMPLETED,
       platform: "PC",
       multimedia: [
         {
           type: "image",
-          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp",
+          url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.jpg",
         },
       ],
     });
+
+    const allGames = await gameRepository.getAll();
+    expect(allGames).toHaveLength(11);
+    expect(allGames[10]).toEqual(addedGame);
+  });
+
+  it("throws an error when required fields are missing", async () => {
+    const invalidGameData = {
+      id: "11",
+      title: "My Awesome Game Title",
+      status: MEDIA_STATUS_TYPES.COMPLETED,
+      platform: PLATFORM_TYPES.PC,
+    };
+
+    await expect(addGameUseCase.execute(invalidGameData)).rejects.toThrow(
+      "MISSING_REQUIRED_PARAMS"
+    );
+
+    const allGames = await gameRepository.getAll();
+    expect(allGames).toHaveLength(10);
   });
 });

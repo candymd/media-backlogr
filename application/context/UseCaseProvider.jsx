@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { UseCaseContext } from "./index.js"; // Use the correct path here
+import { UseCaseContext } from "./index.js";
 import { createUseCaseContext } from "./createUseCaseContext";
 
 const useCases = createUseCaseContext();
