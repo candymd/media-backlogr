@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
 
-const Modal = ({ open, onClose, children }) => {
+const Modal = ({ open, onClose, children, header }) => {
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -51,7 +51,7 @@ const Modal = ({ open, onClose, children }) => {
           </svg>
         </button>
 
-        <h2 className="mb-4 text-lg font-semibold">Add New Media</h2>
+        <h2 className="mb-4 text-lg font-semibold">{header}</h2>
         {children}
         <div className="flex justify-end space-x-2 mt-4">
           <button

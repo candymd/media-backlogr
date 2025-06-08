@@ -10,4 +10,9 @@ export const PLATFORM_TYPES = {
   XBOX: "XBOX",
 };
 
+export const MEDIA_TYPES = {
+  GAME: "game",
+  MOVIE: "movie",
+};
+
 export const API_URL = "http://localhost:8080";
