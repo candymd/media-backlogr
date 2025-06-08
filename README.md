@@ -1,9 +1,25 @@
-# React + Vite
+# Media Backlogr
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application to manage your media backlog, including games and movies. Built with modern web technologies and clean architecture principles.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# media-backlogr
+- Track your games and movies backlog
+- Add new media items to your collection
+- Organize and manage your entertainment wishlist
+- Clean and modern UI with Tailwind CSS
+
+## 🛠️ Tech Stack
+
+- **Frontend Framework**: React 19
+- **Build Tool**: Vite 6
+- **Styling**: Tailwind CSS 4
+- **API Communication**: Axios
+- **Development Database**: JSON Server
+- **Testing**: Vitest
+- **Code Quality**: ESLint
+
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
