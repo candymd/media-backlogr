@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
   return (
     <nav className="bg-brand-darkest border-b border-brand-border h-16 px-6 flex items-center justify-between relative z-100">
-      <div>
-        <Link to="/" className="flex items-center gap-2">
+      <div className="flex items-center">
+        <Link to="/" className="flex items-center gap-3">
           <svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="text-brand-lightest"
