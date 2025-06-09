@@ -1,19 +1,79 @@
 @import "tailwindcss";
 
-@layer base {
-  a,
-  button,
-  input[type="button"],
-  input[type="submit"],
-  textarea,
-  select,
-  .cursor-pointer {
-    cursor: pointer;
+/* TODO: Create a concise color theme for the app */
+
+@theme {
+  /* Background Colors */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #2c343f;
+  --color-bg-tertiary: #556678;
+  --color-bg-dark: #000000;
+  --color-bg-light: #00b021; /* Bright green */
+
+  /* Brand Colors */
+  --color-brand-primary: #ff0067;
+  --color-text-muted: #556678;
+  --color-text-primary: #ffffff;
+
+  /* Status Colors */
+  --color-status-blue: #00acff;
+  --color-status-warning: #f27405;
+  --color-status-error: #ff0000;
+  --color-status-success: #00b021;
+}
+
+/* Base Styles */
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-primary);
+}
+
+/* Hero Background */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: url("./assets/images/home-background.webp");
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.8) 50%,
+    var(--color-bg-dark) 100%
+  );
+  z-index: -1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Interactive Elements */
+a,
+button,
+input[type="button"],
+input[type="submit"],
+textarea,
+select,
+.cursor-pointer {
+  cursor: pointer;
 }
