@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { useUseCases } from "../../../application/context";
-import Modal from "../../components/modal";
-import MediaForm from "../../components/mediaForm";
+import Modal from "../../components/shared/modal/index";
+import MediaForm from "../../components/media/form/index";
 import { MEDIA_TYPES } from "../../../domain/config";
-import MediaTable from "../../components/mediaTable";
-import Loader from "../../components/loader";
+import MediaGrid from "../../components/media/grid/index";
+import Loader from "../../components/shared/loader/index";
+import Layout from "../../components/shared/layout/index";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
@@ -42,7 +43,7 @@ export default function MoviesPage() {
   }
 
   return (
-    <>
+    <Layout>
       {isModalOpen && (
         <Modal
           open={isModalOpen}
@@ -52,18 +53,16 @@ export default function MoviesPage() {
           <MediaForm type={MEDIA_TYPES.MOVIE} onSubmit={() => fetchMovies()} />
         </Modal>
       )}
-      <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-semibold mb-4">Movies Backlog</h1>
-        <MediaTable type={MEDIA_TYPES.MOVIE} items={movies} />
-        <div className="mb-6">
-          <button
-            onClick={toggleModal}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-right"
-          >
-            Add New Movie
-          </button>
-        </div>
-      </div>
-    </>
+      <section className="flex justify-between items-center my-6">
+        <h1 className="text-3xl font-semibold">Movies Backlog</h1>
+        <button
+          onClick={toggleModal}
+          className="px-4 py-2 text-brand-lightest rounded-lg font-semibold bg-brand-primary hover:bg-brand-secondary"
+        >
+          Log movie
+        </button>
+      </section>
+      <MediaGrid type={MEDIA_TYPES.MOVIE} items={movies} />
+    </Layout>
   );
 }

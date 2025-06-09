@@ -3,21 +3,21 @@ import { UseCaseProvider } from "../application/context/UseCaseProvider";
 import Home from "./pages/home/index";
 import GamesPage from "./pages/games/index";
 import MoviesPage from "./pages/movies/index";
-import NavBar from "./components/NavBar";
+import Topbar from "./components/shared/topbar/index";
 
 function App() {
   return (
     <BrowserRouter>
       <UseCaseProvider>
         <>
-          <NavBar />
-          <div className="content-container">
+          <Topbar />
+          <main>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/games" element={<GamesPage />} />
               <Route path="/movies" element={<MoviesPage />} />
             </Routes>
-          </div>
+          </main>
         </>
       </UseCaseProvider>
     </BrowserRouter>

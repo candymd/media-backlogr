@@ -15,4 +15,15 @@ export const MEDIA_TYPES = {
   MOVIE: "movie",
 };
 
+export const mapPlatformToLabel = (platform) => {
+  switch (platform) {
+    case PLATFORM_TYPES.PC:
+      return "PC";
+    case PLATFORM_TYPES.PLAYSTATION_5:
+      return "PS5";
+    case PLATFORM_TYPES.XBOX:
+      return "Xbox";
+  }
+};
+
 export const API_URL = "http://localhost:8080";

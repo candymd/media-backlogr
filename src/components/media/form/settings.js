@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { MEDIA_STATUS_TYPES, PLATFORM_TYPES } from "../../../domain/config";
+import { MEDIA_STATUS_TYPES, PLATFORM_TYPES } from "../../../../domain/config";
 
 const baseSchema = {
   title: yup
