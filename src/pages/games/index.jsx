@@ -6,7 +6,7 @@ import Loader from "../../components/shared/loader/index";
 import MediaForm from "../../components/media/form/index";
 import MediaGrid from "../../components/media/grid";
 import Modal from "../../components/shared/modal/index";
-import { mapPlatformLabel } from "./settings";
+import { mapPlatformToLabel } from "../../../domain/config";
 
 function GamesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,7 +25,7 @@ function GamesPage() {
       const games = await getAllGamesUseCase.execute();
       const mappedGames = games.map((game) => ({
         ...game,
-        platform: mapPlatformLabel(game.platform),
+        platform: mapPlatformToLabel(game.platform),
       }));
 
       setGames(mappedGames);
