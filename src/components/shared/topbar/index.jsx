@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function NavBar() {
+function Topbar() {
   return (
     <header>
       <nav className="bg-brand-darkest border-b border-brand-border h-16 px-6 flex items-center justify-between relative z-100">
@@ -52,3 +52,5 @@ export default function NavBar() {
     </header>
   );
 }
+
+export default Topbar;
