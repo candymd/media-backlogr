@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
-import MediaTable from "../../components/mediaTable";
-import Modal from "../../components/modal";
+import MediaTable from "../../components/media/table/index";
+import Modal from "../../components/shared/modal/index";
 import { useUseCases } from "../../../application/context";
 import { MEDIA_TYPES } from "../../../domain/config";
-import MediaForm from "../../components/mediaForm";
-import Loader from "../../components/loader";
+import MediaForm from "../../components/media/form/index";
+import Loader from "../../components/shared/loader/index";
 
 function GamesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);

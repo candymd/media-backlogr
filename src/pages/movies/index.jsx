@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { useUseCases } from "../../../application/context";
-import Modal from "../../components/modal";
-import MediaForm from "../../components/mediaForm";
+import Modal from "../../components/shared/modal/index";
+import MediaForm from "../../components/media/form/index";
 import { MEDIA_TYPES } from "../../../domain/config";
-import MediaTable from "../../components/mediaTable";
-import Loader from "../../components/loader";
+import MediaTable from "../../components/media/table/index";
+import Loader from "../../components/shared/loader/index";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);

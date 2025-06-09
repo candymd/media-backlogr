@@ -1,10 +1,10 @@
 import { gameSchema, movieSchema } from "./settings";
-import { MEDIA_TYPES } from "../../../domain/config";
+import { MEDIA_TYPES } from "../../../../domain/config";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useUseCases } from "../../../application/context";
+import { useUseCases } from "../../../../application/context";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Loader from "../loader";
+import Loader from "../../shared/loader/index";
 import PropTypes from "prop-types";
 
 const getInitialData = (type) => {

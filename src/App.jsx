@@ -3,7 +3,7 @@ import { UseCaseProvider } from "../application/context/UseCaseProvider";
 import Home from "./pages/home/index";
 import GamesPage from "./pages/games/index";
 import MoviesPage from "./pages/movies/index";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/shared/navbar/index";
 
 function App() {
   return (
