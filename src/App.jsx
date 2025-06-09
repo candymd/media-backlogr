@@ -11,13 +11,13 @@ function App() {
       <UseCaseProvider>
         <>
           <NavBar />
-          <div className="content-container">
+          <main>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/games" element={<GamesPage />} />
               <Route path="/movies" element={<MoviesPage />} />
             </Routes>
-          </div>
+          </main>
         </>
       </UseCaseProvider>
     </BrowserRouter>
