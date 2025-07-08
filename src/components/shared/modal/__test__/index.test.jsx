@@ -51,6 +51,6 @@ describe("Modal", () => {
     const closeButton = screen.getByRole("button", { name: "Close" });
     closeButton.click();
 
-    expect(onCloseMock).toHaveBeenCalledTimes();
+    expect(onCloseMock).toHaveBeenCalledTimes(1);
   });
 });
