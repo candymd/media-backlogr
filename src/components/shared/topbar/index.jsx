@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 function Topbar() {
   return (
-    <header>
+    <header role="banner">
       <nav className="bg-brand-darkest border-b border-brand-border h-16 px-6 flex items-center justify-between relative z-100">
         <div className="flex items-center">
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3" aria-label="Home">
             <svg
               width="28"
               height="28"
@@ -38,12 +38,14 @@ function Topbar() {
           <Link
             to="/games"
             className="text-brand-light hover:text-brand-lightest transition-colors font-medium"
+            aria-label="Games"
           >
             Games
           </Link>
           <Link
             to="/movies"
             className="text-brand-light hover:text-brand-lightest transition-colors font-medium"
+            aria-label="Movies"
           >
             Movies
           </Link>

@@ -26,6 +26,8 @@ const Modal = ({ open, onClose, children, header }) => {
     <div
       className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50"
       onClick={handleBackdropClick}
+      role="dialog"
+      aria-modal="true"
     >
       <div
         className="relative p-6 bg-white rounded-lg shadow-lg max-w-lg w-full"
@@ -33,6 +35,8 @@ const Modal = ({ open, onClose, children, header }) => {
       >
         <button
           onClick={onClose}
+          aria-label="Close"
+          name="Close"
           className="absolute top-4 right-4 text-gray-700 hover:text-gray-900"
         >
           <svg
@@ -56,6 +60,8 @@ const Modal = ({ open, onClose, children, header }) => {
         <div className="flex justify-end space-x-2 mt-4">
           <button
             onClick={onClose}
+            aria-label="Cancel"
+            name="Cancel"
             className="px-4 py-2 text-white bg-gray-500 rounded"
           >
             Cancel
