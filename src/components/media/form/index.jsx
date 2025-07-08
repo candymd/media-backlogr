@@ -86,16 +86,17 @@ function MediaForm({ type, onSubmit, initialData, isEditing }) {
       role="form"
     >
       <div>
-        <label className="block text-sm text-gray-600">* Title</label>
+        <label className="block text-sm text-white mb-1mb-0.5"> Title *</label>
         <input
           type="text"
           {...register("title")}
           placeholder="Enter title..."
           className={`w-full p-2 border rounded ${
-            errors.title ? "border-red-500" : "border-gray-300"
+            errors.title ? "border-status-error" : "border-gray-300"
           }`}
           aria-label="Title"
           aria-invalid={errors.title ? "true" : "false"}
+          autoFocus
         />
         {errors.title && (
           <p className="mt-1 text-sm text-red-500" role="alert">
@@ -105,16 +106,16 @@ function MediaForm({ type, onSubmit, initialData, isEditing }) {
       </div>
 
       <div>
-        <label className="block text-sm text-gray-600">* Status</label>
+        <label className="block text-sm text-white mb-0.5"> Status *</label>
         <select
           {...register("status")}
           className={`w-full p-2 border rounded ${
-            errors.status ? "border-red-500" : "border-gray-300"
+            errors.status ? "border-status-error" : "border-gray-300"
           }`}
           aria-label="Status"
           aria-invalid={errors.status ? "true" : "false"}
         >
-          <option value="">Select Status</option>
+          <option value="">Select status</option>
           <option value="in_backlog">In Backlog</option>
           <option value="in_progress">In Progress</option>
           <option value="completed">Completed</option>
@@ -128,11 +129,11 @@ function MediaForm({ type, onSubmit, initialData, isEditing }) {
 
       {type === MEDIA_TYPES.GAME && (
         <div>
-          <label className="block text-sm text-gray-600">* Platform</label>
+          <label className="block text-sm text-whitemb-0.5"> Platform *</label>
           <select
             {...register("platform")}
             className={`w-full p-2 border rounded ${
-              errors.platform ? "border-red-500" : "border-gray-300"
+              errors.platform ? "border-status-error" : "border-gray-300"
             }`}
             aria-label="Platform"
             aria-invalid={errors.platform ? "true" : "false"}
@@ -153,12 +154,15 @@ function MediaForm({ type, onSubmit, initialData, isEditing }) {
       {type === MEDIA_TYPES.MOVIE && (
         <>
           <div>
-            <label className="block text-sm text-gray-600">* Director</label>
+            <label className="block text-sm text-white mb-0.5">
+              Director *
+            </label>
             <input
               type="text"
+              placeholder="Enter director's name..."
               {...register("director")}
               className={`w-full p-2 border rounded ${
-                errors.director ? "border-red-500" : "border-gray-300"
+                errors.director ? "border-status-error" : "border-gray-300"
               }`}
               aria-label="Director"
               aria-invalid={errors.director ? "true" : "false"}
@@ -169,16 +173,18 @@ function MediaForm({ type, onSubmit, initialData, isEditing }) {
               </p>
             )}
           </div>
-
           <div>
-            <label className="block text-sm text-gray-600">
-              * Release Year
+            <label className="block text-sm text-white mb-0.5">
+              Release year *
             </label>
             <input
               type="number"
+              min={1888}
+              max={new Date().getFullYear()}
+              placeholder="Enter release year..."
               {...register("releaseYear")}
-              className={`w-full p-2 border rounded ${
-                errors.releaseYear ? "border-red-500" : "border-gray-300"
+              className={`w-full p-2 border rounded [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${
+                errors.releaseYear ? "border-status-error" : "border-gray-300"
               }`}
               aria-label="Release Year"
               aria-invalid={errors.releaseYear ? "true" : "false"}
@@ -189,14 +195,14 @@ function MediaForm({ type, onSubmit, initialData, isEditing }) {
               </p>
             )}
           </div>
-
           <div>
-            <label className="block text-sm text-gray-600">* Genre</label>
+            <label className="block text-sm text-white mb-0.5"> Genre *</label>
             <input
               type="text"
+              placeholder="Enter genre..."
               {...register("genre")}
               className={`w-full p-2 border rounded ${
-                errors.genre ? "border-red-500" : "border-gray-300"
+                errors.genre ? "border-status-error" : "border-gray-300"
               }`}
               aria-label="Genre"
               aria-invalid={errors.genre ? "true" : "false"}
@@ -209,12 +215,11 @@ function MediaForm({ type, onSubmit, initialData, isEditing }) {
           </div>
         </>
       )}
-
       <button
         type="submit"
         disabled={isSubmitting}
         aria-label="Submit"
-        className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-blue-300 disabled:cursor-not-allowed"
+        className="w-full py-2 bg-brand-primary text-white rounded hover:bg-brand-primary/80 disabled:bg-brand-primary/50 disabled:cursor-not-allowed"
       >
         {isSubmitting ? <Loader /> : `${isEditing ? "Update" : "Add"} ${type}`}
       </button>

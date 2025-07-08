@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 
 const Modal = ({ open, onClose, children, header }) => {
   const handleBackdropClick = (e) => {
@@ -24,20 +24,20 @@ const Modal = ({ open, onClose, children, header }) => {
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50"
+      className="fixed inset-0 flex items-center justify-center z-50 bg-primary/80 bg-opacity-50"
       onClick={handleBackdropClick}
       role="dialog"
       aria-modal="true"
     >
       <div
-        className="relative p-6 bg-white rounded-lg shadow-lg max-w-lg w-full"
+        className="relative p-6 bg-tertiary rounded-lg shadow-lg max-w-lg w-full"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label="Close"
           name="Close"
-          className="absolute top-4 right-4 text-gray-700 hover:text-gray-900"
+          className="absolute top-4 right-4 text-gray-700 hover:text-primary/60 color-light"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ const Modal = ({ open, onClose, children, header }) => {
             onClick={onClose}
             aria-label="Cancel"
             name="Cancel"
-            className="px-4 py-2 text-white bg-gray-500 rounded"
+            className="px-4 py-2 text-white bg-gray-500 hover:bg-gray-400 rounded"
           >
             Cancel
           </button>
@@ -73,3 +73,9 @@ const Modal = ({ open, onClose, children, header }) => {
 };
 
 export default Modal;
+Modal.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+  header: PropTypes.string.isRequired,
+};

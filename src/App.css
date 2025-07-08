@@ -4,11 +4,11 @@
 
 @theme {
   /* Background Colors */
-  --color-bg-primary: #000000;
-  --color-bg-secondary: #2c343f;
-  --color-bg-tertiary: #556678;
-  --color-bg-dark: #000000;
-  --color-bg-light: #00b021; /* Bright green */
+  --color-primary: #000000;
+  --color-secondary: #2c343f;
+  --color-tertiary: #556678;
+  --color-dark: #000000;
+  --color-light: #00b021;
 
   /* Brand Colors */
   --color-brand-primary: #ff0067;
@@ -24,7 +24,7 @@
 
 /* Base Styles */
 body {
-  background-color: var(--color-bg-dark);
+  background-color: var(--color-dark);
   color: var(--color-text-primary);
 }
 
