@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { MEDIA_TYPES } from "../../../../domain/config/index";
+import StatusBadge from "./statusBadge";
 
 function MediaCard({ type, item }) {
   if (type !== MEDIA_TYPES.MOVIE && type !== MEDIA_TYPES.GAME) {
@@ -33,7 +34,7 @@ function MediaCard({ type, item }) {
               ? `${title} (${releaseYear})`
               : `${title} (${platform})`}
           </p>
-          <p className="text-white text-center text-xs">{status}</p>
+          <StatusBadge status={status} />
         </div>
       </div>
     </div>

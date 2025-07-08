@@ -3,12 +3,12 @@
     {
       "id": "b2f1",
       "title": "Resident Evil Village",
-      "status": "completed",
+      "status": "in_backlog",
       "platform": "PC",
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2zpu.webp"
         }
       ]
     },
@@ -20,7 +20,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp"
         }
       ]
     },
@@ -32,7 +32,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co7497.webp"
         }
       ]
     },
@@ -44,7 +44,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co39vc.webp"
         }
       ]
     },
@@ -56,7 +56,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2ed3.webp"
         }
       ]
     },
@@ -68,7 +68,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2crj.webp"
         }
       ]
     },
@@ -80,7 +80,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2dwe.webp"
         }
       ]
     },
@@ -92,7 +92,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2a23.webp"
         }
       ]
     },
@@ -104,7 +104,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp"
         }
       ]
     },
@@ -116,7 +116,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1qxr.webp"
         }
       ]
     },
@@ -128,43 +128,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
-        }
-      ]
-    },
-    {
-      "id": "3c6a",
-      "title": "Elden Ring",
-      "status": "in_progress",
-      "platform": "PC",
-      "multimedia": [
-        {
-          "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
-        }
-      ]
-    },
-    {
-      "id": "5b8f",
-      "title": "Death Stranding",
-      "status": "completed",
-      "platform": "PC",
-      "multimedia": [
-        {
-          "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
-        }
-      ]
-    },
-    {
-      "id": "1d4e",
-      "title": "Control",
-      "status": "in_progress",
-      "platform": "PC",
-      "multimedia": [
-        {
-          "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vcf.webp"
         }
       ]
     }
@@ -180,21 +144,21 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/p96dm7sCMn4VYAStA6siNz30G1r.jpg"
         }
       ]
     },
     {
       "id": "2f5g",
       "title": "Pretty Woman",
-      "status": "in_progress",
+      "status": "in_backlog",
       "releaseYear": 1990,
       "director": "Gary Marshall",
       "genre": "Romance",
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hVHUfT801LQATGd26VPzhorIYza.jpg"
         }
       ]
     },
@@ -208,7 +172,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg"
         }
       ]
     },
@@ -222,7 +186,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9LTQNCvoLsKXP0LtaKAaYVtRaQL.jpg"
         }
       ]
     },
@@ -236,7 +200,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dvjqlp2sAhUeFjUOfQDgqwpphHj.jpg"
         }
       ]
     },
@@ -250,7 +214,7 @@
       "multimedia": [
         {
           "type": "image",
-          "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.webp"
+          "url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eBU7gCjTCj9n2LTxvCSIXXOvHkD.jpg"
         }
       ]
     }
