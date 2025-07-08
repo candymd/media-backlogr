@@ -26,6 +26,8 @@ const Modal = ({ open, onClose, children, header }) => {
     <div
       className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50"
       onClick={handleBackdropClick}
+      role="dialog"
+      aria-modal="true"
     >
       <div
         className="relative p-6 bg-white rounded-lg shadow-lg max-w-lg w-full"
