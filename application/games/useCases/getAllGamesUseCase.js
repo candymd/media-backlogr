@@ -1,10 +1,12 @@
 export class GetAllGamesUseCase {
+  #repository;
+
   constructor({ repository }) {
-    this._repository = repository;
+    this.#repository = repository;
   }
 
   async execute() {
-    const allGames = await this._repository.getAll();
+    const allGames = await this.#repository.getAll();
 
     if (!allGames) {
       throw new Error("Failed to retrieve games");
