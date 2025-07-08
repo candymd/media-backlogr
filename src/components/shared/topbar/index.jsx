@@ -5,12 +5,7 @@ function Topbar() {
     <header role="banner">
       <nav className="bg-brand-darkest border-b border-brand-border h-16 px-6 flex items-center justify-between relative z-100">
         <div className="flex items-center">
-          <Link
-            to="/"
-            className="flex items-center gap-3"
-            role="link"
-            aria-label="Home"
-          >
+          <Link to="/" className="flex items-center gap-3" aria-label="Home">
             <svg
               width="28"
               height="28"
@@ -43,7 +38,6 @@ function Topbar() {
           <Link
             to="/games"
             className="text-brand-light hover:text-brand-lightest transition-colors font-medium"
-            role="link"
             aria-label="Games"
           >
             Games
@@ -51,7 +45,6 @@ function Topbar() {
           <Link
             to="/movies"
             className="text-brand-light hover:text-brand-lightest transition-colors font-medium"
-            role="link"
             aria-label="Movies"
           >
             Movies

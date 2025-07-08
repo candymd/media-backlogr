@@ -35,6 +35,8 @@ const Modal = ({ open, onClose, children, header }) => {
       >
         <button
           onClick={onClose}
+          aria-label="Close"
+          name="Close"
           className="absolute top-4 right-4 text-gray-700 hover:text-gray-900"
         >
           <svg
@@ -58,6 +60,8 @@ const Modal = ({ open, onClose, children, header }) => {
         <div className="flex justify-end space-x-2 mt-4">
           <button
             onClick={onClose}
+            aria-label="Cancel"
+            name="Cancel"
             className="px-4 py-2 text-white bg-gray-500 rounded"
           >
             Cancel

@@ -1,7 +1,7 @@
 function Loader() {
   return (
     <div className="flex justify-center items-center">
-      <div role="status">
+      <div role="status" aria-live="polite" aria-label="Loading">
         <svg
           aria-hidden="true"
           className="inline w-8 h-8 text-gray-200 animate-spin fill-blue-600"
@@ -18,7 +18,6 @@ function Loader() {
             fill="currentFill"
           />
         </svg>
-        <span className="sr-only">Loading...</span>
       </div>
     </div>
   );

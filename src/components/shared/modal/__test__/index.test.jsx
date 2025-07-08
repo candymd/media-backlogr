@@ -35,4 +35,22 @@ describe("Modal", () => {
 
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
+
+  it("should call onClose when close button is clicked", () => {
+    const onCloseMock = vi.fn();
+
+    const defaultProps = {
+      open: true,
+      onClose: onCloseMock,
+      children: <p>Test</p>,
+      header: "header",
+    };
+
+    render(<Modal {...defaultProps} />);
+
+    const closeButton = screen.getByRole("button", { name: "Close" });
+    closeButton.click();
+
+    expect(onCloseMock).toHaveBeenCalledTimes();
+  });
 });
