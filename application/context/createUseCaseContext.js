@@ -1,6 +1,6 @@
 import { AddGameUseCase } from "../games/useCases/addGameUseCase";
 import { GetAllGamesUseCase } from "../games/useCases/getAllGamesUseCase";
-import { HttpGamesRepository } from "../../infrastructure/games/httpGamesRepository";
+import { HttpGamesRepository } from "../../infrastructure/games/HttpGamesRepository";
 import { UpdateGameByIdUseCase } from "../games/useCases/updateGameByIdUseCase";
 import { DeleteGameByIdUseCase } from "../games/useCases/deleteGameByIdUseCase";
 import axios from "axios";
