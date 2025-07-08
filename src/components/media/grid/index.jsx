@@ -13,7 +13,11 @@ function MediaGrid({ type, items }) {
   }
 
   return (
-    <div className="mb-8 grid grid-cols-4 gap-2 lg:grid-cols-5">
+    <div
+      className="mb-8 grid grid-cols-4 gap-2 lg:grid-cols-5"
+      role="grid"
+      aria-label={`${type} grid`}
+    >
       {items.map((item) => (
         <MediaCard key={item.id} type={type} item={item} />
       ))}

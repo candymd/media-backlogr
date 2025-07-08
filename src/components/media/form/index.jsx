@@ -2,7 +2,7 @@ import { gameSchema, movieSchema } from "./settings";
 import { MEDIA_TYPES } from "../../../../domain/config";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useUseCases } from "../../../../application/context";
+import { useUseCases } from "../../../../application/context/index";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Loader from "../../shared/loader/index";
 import PropTypes from "prop-types";
@@ -83,6 +83,7 @@ function MediaForm({ type, onSubmit, initialData, isEditing }) {
       onSubmit={handleSubmit(onSubmitForm)}
       className="space-y-4"
       noValidate
+      role="form"
     >
       <div>
         <label className="block text-sm text-gray-600">* Title</label>
