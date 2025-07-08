@@ -1,12 +1,23 @@
 import PropTypes from "prop-types";
+import { MEDIA_TYPES } from "../../../../domain/config/index";
 
 function MediaCard({ type, item }) {
-  if (!item) return null;
+  if (type !== MEDIA_TYPES.MOVIE && type !== MEDIA_TYPES.GAME) {
+    return null;
+  }
+
+  if (!item) {
+    return null;
+  }
 
   const { title, status, platform, releaseYear, multimedia } = item;
 
   return (
-    <div className="aspect-[2/3] border border-solid shadow-[0_0_1px_1px_rgba(20,24,28,1)]  border-gray-300/50 hover:cursor-pointer rounded-lg relative">
+    <div
+      className="aspect-[2/3] border border-solid shadow-[0_0_1px_1px_rgba(20,24,28,1)]  border-gray-300/50 hover:cursor-pointer rounded-lg relative"
+      role="card"
+      aria-label={`${title} card`}
+    >
       <img
         className="w-full h-full object-fill rounded-lg"
         src={multimedia[0].url}
