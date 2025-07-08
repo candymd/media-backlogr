@@ -14,12 +14,12 @@ function StatusBadge({ status }) {
 
   return (
     <span
-      role="badge"
+      aria-label="badge"
       className={`inline-flex mt-2 items-center px-2 py-1 rounded-full text-xs font-semibold ${
         statusClasses[status] || "bg-gray-300 text-gray-800"
       }`}
     >
-      {status.replace(/_/g, " ").toUpperCase()}
+      {status?.replace(/_/g, " ").toUpperCase()}
     </span>
   );
 }
