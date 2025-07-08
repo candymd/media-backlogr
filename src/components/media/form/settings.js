@@ -11,7 +11,7 @@ const baseSchema = {
   status: yup
     .string()
     .required("Status is required")
-    .oneOf(Object.values(MEDIA_STATUS_TYPES), "Invalid status"),
+    .oneOf(Object.values(MEDIA_STATUS_TYPES), "Status is required"),
 };
 
 export const gameSchema = yup.object({
