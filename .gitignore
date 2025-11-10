@@ -28,6 +28,7 @@ app_structure.md
 
 # Data
 data/db.json
+db.json
 
 # Build
 build/
