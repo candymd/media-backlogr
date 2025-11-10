@@ -5,8 +5,9 @@ function Home() {
         <main className="flex flex-col">
           <section className="relative h-screen flex items-center justify-center">
             <div className="hero-background !h-screen" />
-            <div className="hero-overlay !h-screen" />
-
+            <div
+              className="absolute inset-0 w-full h-screen bg-gradient-to-b from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.8)] to-[var(--color-dark)] z-[-1]"
+            />
             <div className="relative z-10 text-center px-6">
               <h1 className="text-5xl font-bold text-brand-lightest mb-6 tracking-tight">
                 Media Backlogr
