@@ -12,6 +12,8 @@ function MediaCard({ type, item }) {
   }
 
   const { title, status, platform, releaseYear, multimedia } = item;
+  // TODO: Implement fallback poster
+  const fallbackPoster = "https://st4.depositphotos.com/14953852/22772/v/450/depositphotos_227725020-stock-illustration-image-available-icon-flat-vector.jpg";
 
   return (
     <div
@@ -21,7 +23,9 @@ function MediaCard({ type, item }) {
     >
       <img
         className="w-full h-full object-fill rounded-lg"
-        src={multimedia[0].url}
+        src={
+          multimedia?.[0]?.url || fallbackPoster
+        }
         alt={title}
         aria-label={title}
         loading="lazy"
